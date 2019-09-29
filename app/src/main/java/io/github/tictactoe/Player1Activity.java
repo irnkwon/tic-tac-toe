@@ -2,6 +2,7 @@ package io.github.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,30 +53,39 @@ public class Player1Activity extends AppCompatActivity
 
         if (allBtnTxt == "" && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 1 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
+            clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 2 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 3 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
+            clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 4 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 5 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
+            clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 6 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 7 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
+            clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 8 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            clickedBtn.setBackgroundResource(R.drawable.x);
         }
 
         checkWinner();
@@ -110,6 +120,19 @@ public class Player1Activity extends AppCompatActivity
                 firstColumn.equals("ooo") || secondColumn.equals("ooo") || lastColumn.equals("ooo")
                 || leftDiagonal.equals("ooo") || rightDiagonal.equals("ooo")) {
             Toast.makeText(this, oWinMsg, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            checkDraw();
+        }
+    }
+
+    public void checkDraw() {
+        if (aButtons[0][0].getText().length() > 0 && aButtons[0][1].getText().length() > 0 &&
+            aButtons[0][2].getText().length() > 0 && aButtons[1][0].getText().length() > 0 &&
+            aButtons[1][1].getText().length() > 0 && aButtons[1][2].getText().length() > 0 &&
+            aButtons[2][0].getText().length() > 0 && aButtons[2][1].getText().length() > 0 &&
+            aButtons[2][2].getText().length() > 0) {
+            Toast.makeText(this, drawMsg, Toast.LENGTH_SHORT).show();
         }
     }
 }
