@@ -77,5 +77,39 @@ public class Player1Activity extends AppCompatActivity
         if (allBtnTxt.length() == 8 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
         }
+
+        checkWinner();
+    }
+
+    public void checkWinner() {
+        String firstRow = aButtons[0][0].getText().toString() + aButtons[0][1].getText() +
+                aButtons[0][2].getText();
+        String secondRow = aButtons[1][0].getText().toString() + aButtons[1][1].getText() +
+                aButtons[1][2].getText();
+        String lastRow = aButtons[2][0].getText().toString() + aButtons[2][1].getText() +
+                aButtons[2][2].getText();
+        String firstColumn = aButtons[0][0].getText().toString() + aButtons[1][0].getText() +
+                aButtons[2][0].getText();
+        String secondColumn = aButtons[0][1].getText().toString() + aButtons[1][1].getText() +
+                aButtons[2][1].getText();
+        String lastColumn = aButtons[0][2].getText().toString() + aButtons[1][2].getText() +
+                aButtons[2][2].getText();
+        String leftDiagonal
+                = aButtons[0][0].getText().toString() + aButtons[1][1].getText() +
+                aButtons[2][2].getText();
+        String rightDiagonal
+                = aButtons[0][2].getText().toString() + aButtons[1][1].getText() +
+                aButtons[2][0].getText();
+
+        if (firstRow.equals("xxx") || secondRow.equals("xxx") || lastRow.equals("xxx") ||
+            firstColumn.equals("xxx") || secondColumn.equals("xxx") || lastColumn.equals("xxx") ||
+            leftDiagonal.equals("xxx") || rightDiagonal.equals("xxx")) {
+            Toast.makeText(this, xWinMsg, Toast.LENGTH_SHORT).show();
+        }
+        else if (firstRow.equals("ooo") || secondRow.equals("ooo") || lastRow.equals("ooo") ||
+                firstColumn.equals("ooo") || secondColumn.equals("ooo") || lastColumn.equals("ooo")
+                || leftDiagonal.equals("ooo") || rightDiagonal.equals("ooo")) {
+            Toast.makeText(this, oWinMsg, Toast.LENGTH_SHORT).show();
+        }
     }
 }
