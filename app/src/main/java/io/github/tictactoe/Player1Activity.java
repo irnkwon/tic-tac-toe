@@ -31,10 +31,12 @@ public class Player1Activity extends AppCompatActivity
         aButtons[2][0] = findViewById(R.id.button20);
         aButtons[2][1] = findViewById(R.id.button21);
         aButtons[2][2] = findViewById(R.id.button22);
+        Button newGameButton = findViewById(R.id.new_game);
 
         for (int j = 0; j < 3; j++) {
             for (int i = 0; i < 3; i++) {
                 aButtons[i][j].setOnClickListener(this);
+                newGameButton.setOnClickListener(this);
             }
         }
     }
@@ -96,6 +98,10 @@ public class Player1Activity extends AppCompatActivity
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
 
+        if (clickedBtnTxt.equals("New Game")) {
+            startNewGame();
+        }
+
         checkWinner();
     }
 
@@ -142,5 +148,9 @@ public class Player1Activity extends AppCompatActivity
             aButtons[2][2].getText().length() > 0) {
             Toast.makeText(this, drawMsg, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void startNewGame() {
+        this.recreate();
     }
 }
