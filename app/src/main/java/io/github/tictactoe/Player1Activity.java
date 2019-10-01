@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Player1Activity extends AppCompatActivity
@@ -50,50 +51,70 @@ public class Player1Activity extends AppCompatActivity
 
         int nId = v.getId();
         Button clickedBtn = (Button) findViewById(nId);
+        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
+        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
         String clickedBtnTxt = clickedBtn.getText().toString();
 
         if (allBtnTxt == "" && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            oTurnTxt.setText("Your turn");
+            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 1 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
+            xTurnTxt.setText("Your turn");
+            oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 2 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            oTurnTxt.setText("Your turn");
+            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 3 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
+            xTurnTxt.setText("Your turn");
+            oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 4 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            oTurnTxt.setText("Your turn");
+            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 5 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
+            xTurnTxt.setText("Your turn");
+            oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 6 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            oTurnTxt.setText("Your turn");
+            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 7 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
+            xTurnTxt.setText("Your turn");
+            oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 8 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
+            oTurnTxt.setText("Your turn");
+            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
@@ -128,11 +149,22 @@ public class Player1Activity extends AppCompatActivity
         if (firstRow.equals("xxx") || secondRow.equals("xxx") || lastRow.equals("xxx") ||
             firstColumn.equals("xxx") || secondColumn.equals("xxx") || lastColumn.equals("xxx") ||
             leftDiagonal.equals("xxx") || rightDiagonal.equals("xxx")) {
+
+            for (int j = 0; j < 3; j++) {
+                for (int i = 0; i < 3; i++) {
+                    aButtons[i][j].setEnabled(false);
+                }
+            }
             Toast.makeText(this, xWinMsg, Toast.LENGTH_SHORT).show();
         }
         else if (firstRow.equals("ooo") || secondRow.equals("ooo") || lastRow.equals("ooo") ||
                 firstColumn.equals("ooo") || secondColumn.equals("ooo") || lastColumn.equals("ooo")
                 || leftDiagonal.equals("ooo") || rightDiagonal.equals("ooo")) {
+            for (int j = 0; j < 3; j++) {
+                for (int i = 0; i < 3; i++) {
+                    aButtons[i][j].setEnabled(false);
+                }
+            }
             Toast.makeText(this, oWinMsg, Toast.LENGTH_SHORT).show();
         }
         else {
