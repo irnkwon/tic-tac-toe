@@ -1,169 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="20dp"
-    android:orientation="vertical"
-    android:layout_gravity="center"
     style="@style/PlayerTheme">
 
-    <!-- Images -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/oTurnTxt">
+    <!-- OX Images and turns -->
+    <LinearLayout style="@style/OXContainer">
+
+        <LinearLayout style="@style/OContainer">
+            <TextView android:id="@+id/oTurnTxt"
+                style="@style/PlayerText">
             </TextView>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/o" />
+            <ImageView style="@style/OXImage"
+                android:src="@drawable/o"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/xTurnTxt"
-                android:text="Your turn">
+
+        <LinearLayout style="@style/OContainer.X">
+            <TextView android:id="@+id/xTurnTxt"
+                style="@style/PlayerText.X">
             </TextView>
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+            <ImageView style="@style/OXImage"
                 android:src="@drawable/x" />
         </LinearLayout>
+
     </LinearLayout>
 
+    <!-- Buttons for Tic Tac Toe -->
     <!-- Row 1 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
+    <LinearLayout style="@style/RowContainer">
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button00"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
 
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button01"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button02"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
     </LinearLayout>
 
     <!-- Row 2 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3" >
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+    <LinearLayout style="@style/RowContainer">
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button10"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button11"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button12"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
     </LinearLayout>
 
     <!-- Row 3 -->
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="120dp"
-        android:orientation="horizontal"
-        android:weightSum="3" >
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+    <LinearLayout style="@style/RowContainer">
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button20"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button21"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+
+        <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button22"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                style="@style/PlayerButton" />
         </LinearLayout>
     </LinearLayout>
 
+    <!-- New game button -->
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/new_game"
-        android:text="New Game"/>
+        style="@style/Buttons.NewGame" />
 </LinearLayout>

@@ -1,46 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:visibility="visible"
     style="@style/AppTheme"
     tools:context=".LandingActivity">
 
-    <ImageView
-        android:layout_width="338dp"
-        android:layout_height="183dp"
-        android:layout_above="@id/btnOnePlayer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-1dp"
-        android:src="@drawable/logo" />
+    <!-- Logo -->
+    <ImageView style="@style/Logo"/>
 
+    <!-- Buttons -->
     <Button
         android:id="@+id/btnOnePlayer"
-        style="@style/Button"
-        android:layout_centerInParent="true"
-        android:fontFamily="monospace"
+        style="@style/Buttons"
         android:onClick="onBtnOnePlayerClick"
-        android:text="1 Player" />
+        android:text="@string/one_player" />
 
     <Button
         android:id="@+id/btnTwoPlayers"
-        style="@style/Button"
+        style="@style/Buttons.Second"
         android:layout_below="@id/btnOnePlayer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:fontFamily="monospace"
         android:onClick="onBtnTwoPlayerClick"
-        android:text="2 Players" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="© 2019 Irene Kwon"
-        android:textColor="@color/pink"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="monospace" />
+        android:text="@string/two_players" />
 
 </RelativeLayout>
