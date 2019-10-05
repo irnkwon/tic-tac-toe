@@ -5,15 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Player1Activity extends AppCompatActivity
     implements View.OnClickListener {
 
-    private String oWinMsg = "O Win!";
-    private String xWinMsg = "X Win!";
-    private String drawMsg = "Draw!";
+    private String winMsg = "winner!";
+    private String drawMsg = "draw!";
 
     Button aButtons[][] = new Button[3][3];
 
@@ -57,7 +57,7 @@ public class Player1Activity extends AppCompatActivity
 
         if (allBtnTxt == "" && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("Your turn");
+            oTurnTxt.setText("your turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
@@ -146,6 +146,9 @@ public class Player1Activity extends AppCompatActivity
                 = aButtons[0][2].getText().toString() + aButtons[1][1].getText() +
                 aButtons[2][0].getText();
 
+        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
+        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
+
         if (firstRow.equals("xxx") || secondRow.equals("xxx") || lastRow.equals("xxx") ||
             firstColumn.equals("xxx") || secondColumn.equals("xxx") || lastColumn.equals("xxx") ||
             leftDiagonal.equals("xxx") || rightDiagonal.equals("xxx")) {
@@ -155,7 +158,8 @@ public class Player1Activity extends AppCompatActivity
                     aButtons[i][j].setEnabled(false);
                 }
             }
-            Toast.makeText(this, xWinMsg, Toast.LENGTH_SHORT).show();
+            oTurnTxt.setText("");
+            xTurnTxt.setText(winMsg);
         }
         else if (firstRow.equals("ooo") || secondRow.equals("ooo") || lastRow.equals("ooo") ||
                 firstColumn.equals("ooo") || secondColumn.equals("ooo") || lastColumn.equals("ooo")
@@ -165,7 +169,8 @@ public class Player1Activity extends AppCompatActivity
                     aButtons[i][j].setEnabled(false);
                 }
             }
-            Toast.makeText(this, oWinMsg, Toast.LENGTH_SHORT).show();
+            xTurnTxt.setText("");
+            oTurnTxt.setText(winMsg);
         }
         else {
             checkDraw();
@@ -173,12 +178,16 @@ public class Player1Activity extends AppCompatActivity
     }
 
     private void checkDraw() {
+        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
+        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
+
         if (aButtons[0][0].getText().length() > 0 && aButtons[0][1].getText().length() > 0 &&
             aButtons[0][2].getText().length() > 0 && aButtons[1][0].getText().length() > 0 &&
             aButtons[1][1].getText().length() > 0 && aButtons[1][2].getText().length() > 0 &&
             aButtons[2][0].getText().length() > 0 && aButtons[2][1].getText().length() > 0 &&
             aButtons[2][2].getText().length() > 0) {
-            Toast.makeText(this, drawMsg, Toast.LENGTH_SHORT).show();
+            oTurnTxt.setText(drawMsg);
+            xTurnTxt.setText(drawMsg);
         }
     }
 

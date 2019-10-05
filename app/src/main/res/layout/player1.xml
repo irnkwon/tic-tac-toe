@@ -5,20 +5,34 @@
     <!-- OX Images and turns -->
     <LinearLayout style="@style/OXContainer">
 
-        <LinearLayout style="@style/OContainer">
-            <TextView android:id="@+id/oTurnTxt"
-                style="@style/PlayerText">
+        <LinearLayout
+            style="@style/OContainer"
+        >
+            <TextView
+                android:id="@+id/oTurnTxt"
+                style="@style/PlayerText"
+            >
             </TextView>
-            <ImageView style="@style/OXImage"
-                android:src="@drawable/o"/>
+            <ImageView
+                android:id="@+id/oImage"
+                style="@style/OXImage"
+                android:src="@drawable/o"
+            />
         </LinearLayout>
 
-        <LinearLayout style="@style/OContainer.X">
-            <TextView android:id="@+id/xTurnTxt"
-                style="@style/PlayerText.X">
+        <LinearLayout
+            style="@style/OContainer.X"
+        >
+            <TextView
+                android:id="@+id/xTurnTxt"
+                style="@style/PlayerText.X"
+            >
             </TextView>
-            <ImageView style="@style/OXImage"
-                android:src="@drawable/x" />
+            <ImageView
+                android:id="@+id/xImage"
+                style="@style/OXImage"
+                android:src="@drawable/x"
+            />
         </LinearLayout>
 
     </LinearLayout>
