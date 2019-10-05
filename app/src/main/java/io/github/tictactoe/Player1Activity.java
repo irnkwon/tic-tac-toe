@@ -64,56 +64,56 @@ public class Player1Activity extends AppCompatActivity
         }
         if (allBtnTxt.length() == 1 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("Your turn");
+            xTurnTxt.setText("your turn");
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 2 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("Your turn");
+            oTurnTxt.setText("your turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 3 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("Your turn");
+            xTurnTxt.setText("your turn");
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 4 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("Your turn");
+            oTurnTxt.setText("your turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 5 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("Your turn");
+            xTurnTxt.setText("your turn");
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 6 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("Your turn");
+            oTurnTxt.setText("your turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 7 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("Your turn");
+            xTurnTxt.setText("your turn");
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 8 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("Your turn");
+            oTurnTxt.setText("your turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
