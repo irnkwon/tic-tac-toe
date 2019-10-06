@@ -4,4 +4,5 @@
     <string name="two_players">2 Players</string>
     <string name="turn">your turn</string>
     <string name="new_game">New Game</string>
+    <string name="go_back">Go Back</string>
 </resources>

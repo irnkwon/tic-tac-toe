@@ -2,12 +2,11 @@ package io.github.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Player1Activity extends AppCompatActivity
     implements View.OnClickListener {
@@ -16,6 +15,11 @@ public class Player1Activity extends AppCompatActivity
     private String drawMsg = "draw!";
 
     Button aButtons[][] = new Button[3][3];
+
+    public void onBtnGoBackClick(View v) {
+        Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
+        startActivity(myIntent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
