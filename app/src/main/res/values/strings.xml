@@ -2,7 +2,7 @@
     <string name="app_name">Tic Tac Toe</string>
     <string name="one_player">1 Player</string>
     <string name="two_players">2 Players</string>
-    <string name="turn">your turn</string>
+    <string name="turn">x\'\s turn</string>
     <string name="new_game">New Game</string>
     <string name="go_back">Go Back</string>
 </resources>

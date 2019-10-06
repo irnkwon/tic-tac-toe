@@ -9,17 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Player1Activity extends AppCompatActivity
-    implements View.OnClickListener {
+        implements View.OnClickListener {
 
     private String winMsg = "winner!";
     private String drawMsg = "draw!";
 
     Button aButtons[][] = new Button[3][3];
-
-    public void onBtnGoBackClick(View v) {
-        Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
-        startActivity(myIntent);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +31,7 @@ public class Player1Activity extends AppCompatActivity
         aButtons[2][0] = findViewById(R.id.button20);
         aButtons[2][1] = findViewById(R.id.button21);
         aButtons[2][2] = findViewById(R.id.button22);
+
         Button newGameButton = findViewById(R.id.new_game);
 
         for (int j = 0; j < 3; j++) {
@@ -44,6 +40,11 @@ public class Player1Activity extends AppCompatActivity
                 newGameButton.setOnClickListener(this);
             }
         }
+    }
+
+    public void onBtnGoBackClick(View v) {
+        Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
+        startActivity(myIntent);
     }
 
     @Override
@@ -61,63 +62,63 @@ public class Player1Activity extends AppCompatActivity
 
         if (allBtnTxt == "" && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("your turn");
+            oTurnTxt.setText("o's turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 1 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("your turn");
+            xTurnTxt.setText("x's turn");
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 2 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("your turn");
+            oTurnTxt.setText("o's turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 3 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("your turn");
+            xTurnTxt.setText("x's turn");
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 4 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("your turn");
+            oTurnTxt.setText("o's turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 5 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("your turn");
+            xTurnTxt.setText("x's turn");
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 6 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("your turn");
+            oTurnTxt.setText("o's turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 7 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("your turn");
+            xTurnTxt.setText("x's turn");
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 8 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("your turn");
+            oTurnTxt.setText("o's turn");
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
@@ -154,8 +155,8 @@ public class Player1Activity extends AppCompatActivity
         TextView xTurnTxt = findViewById(R.id.xTurnTxt);
 
         if (firstRow.equals("xxx") || secondRow.equals("xxx") || lastRow.equals("xxx") ||
-            firstColumn.equals("xxx") || secondColumn.equals("xxx") || lastColumn.equals("xxx") ||
-            leftDiagonal.equals("xxx") || rightDiagonal.equals("xxx")) {
+                firstColumn.equals("xxx") || secondColumn.equals("xxx") || lastColumn.equals("xxx") ||
+                leftDiagonal.equals("xxx") || rightDiagonal.equals("xxx")) {
 
             for (int j = 0; j < 3; j++) {
                 for (int i = 0; i < 3; i++) {
@@ -186,10 +187,15 @@ public class Player1Activity extends AppCompatActivity
         TextView xTurnTxt = findViewById(R.id.xTurnTxt);
 
         if (aButtons[0][0].getText().length() > 0 && aButtons[0][1].getText().length() > 0 &&
-            aButtons[0][2].getText().length() > 0 && aButtons[1][0].getText().length() > 0 &&
-            aButtons[1][1].getText().length() > 0 && aButtons[1][2].getText().length() > 0 &&
-            aButtons[2][0].getText().length() > 0 && aButtons[2][1].getText().length() > 0 &&
-            aButtons[2][2].getText().length() > 0) {
+                aButtons[0][2].getText().length() > 0 && aButtons[1][0].getText().length() > 0 &&
+                aButtons[1][1].getText().length() > 0 && aButtons[1][2].getText().length() > 0 &&
+                aButtons[2][0].getText().length() > 0 && aButtons[2][1].getText().length() > 0 &&
+                aButtons[2][2].getText().length() > 0) {
+            for (int j = 0; j < 3; j++) {
+                for (int i = 0; i < 3; i++) {
+                    aButtons[i][j].setEnabled(false);
+                }
+            }
             oTurnTxt.setText(drawMsg);
             xTurnTxt.setText(drawMsg);
         }

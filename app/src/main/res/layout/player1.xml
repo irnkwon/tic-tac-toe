@@ -3,16 +3,14 @@
     style="@style/PlayerTheme">
 
     <androidx.appcompat.widget.Toolbar
-        style="@style/Toolbar"
-    >
+        style="@style/Toolbar">
         <!-- New game button -->
         <Button
             android:id="@+id/go_back"
             style="@style/Buttons.NewGame.GoBack" />
 
         <!-- New game button -->
-        <Button
-            android:id="@+id/new_game"
+        <Button android:id="@+id/new_game"
             style="@style/Buttons.NewGame" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -21,8 +19,7 @@
     <LinearLayout style="@style/OXContainer">
 
         <LinearLayout
-            style="@style/OContainer"
-        >
+            style="@style/OContainer">
             <TextView
                 android:id="@+id/oTurnTxt"
                 style="@style/PlayerText"
@@ -36,8 +33,7 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/OContainer.X"
-        >
+            style="@style/OContainer.X">
             <TextView
                 android:id="@+id/xTurnTxt"
                 style="@style/PlayerText.X"
