@@ -3,8 +3,7 @@
     style="@style/PlayerTheme.H">
 
     <androidx.appcompat.widget.Toolbar
-        style="@style/Toolbar"
-        >
+        style="@style/Toolbar">
         <!-- New game button -->
         <Button
             android:id="@+id/go_back"
@@ -16,8 +15,12 @@
             style="@style/Buttons.NewGame" />
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- OX Images and turns -->
-    <LinearLayout style="@style/OXContainer">
+    <!-- Buttons for Tic Tac Toe -->
+    <!-- Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
 
         <LinearLayout
             style="@style/OContainer"
@@ -35,85 +38,84 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/OContainer.X"
-            >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout style="@style/RowContainer.H">
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+
+                    <Button
+                        android:id="@+id/button00"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+                    <Button
+                        android:id="@+id/button01"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+                    <Button
+                        android:id="@+id/button02"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Row 2 -->
+            <LinearLayout style="@style/RowContainer.H">
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+                    <Button
+                        android:id="@+id/button10"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+                    <Button
+                        android:id="@+id/button11"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+                    <Button
+                        android:id="@+id/button12"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Row 3 -->
+            <LinearLayout style="@style/RowContainer.H">
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+                    <Button
+                        android:id="@+id/button20"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+                    <Button
+                        android:id="@+id/button21"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/PlayerButtonContainer.H">
+                    <Button
+                        android:id="@+id/button22"
+                        style="@style/PlayerButton.H" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout style="@style/OContainer.X.H">
             <TextView
                 android:id="@+id/xTurnTxt"
-                style="@style/PlayerText.X"
-                >
+                style="@style/PlayerText.X">
             </TextView>
             <ImageView
                 android:id="@+id/xImage"
                 style="@style/OXImage"
-                android:src="@drawable/x"
-                />
+                android:src="@drawable/x" />
         </LinearLayout>
 
-    </LinearLayout>
-
-    <!-- Buttons for Tic Tac Toe -->
-    <!-- Row 1 -->
-    <LinearLayout style="@style/RowContainer.H">
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-
-            <Button
-                android:id="@+id/button00"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
-
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-            <Button
-                android:id="@+id/button01"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
-
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-            <Button
-                android:id="@+id/button02"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Row 2 -->
-    <LinearLayout style="@style/RowContainer.H">
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-            <Button
-                android:id="@+id/button10"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
-
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-            <Button
-                android:id="@+id/button11"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
-
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-            <Button
-                android:id="@+id/button12"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Row 3 -->
-    <LinearLayout style="@style/RowContainer.H">
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-            <Button
-                android:id="@+id/button20"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
-
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-            <Button
-                android:id="@+id/button21"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
-
-        <LinearLayout style="@style/PlayerButtonContainer.H">
-            <Button
-                android:id="@+id/button22"
-                style="@style/PlayerButton.H" />
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.H"
+    tools:context=".LandingActivity">
+
+    <!-- Logo -->
+    <ImageView style="@style/Logo"/>
+
+    <!-- Buttons -->
+    <Button
+        android:id="@+id/btnOnePlayer"
+        style="@style/Buttons"
+        android:onClick="onBtnOnePlayerClick"
+        android:text="@string/one_player" />
+
+    <Button
+        android:id="@+id/btnTwoPlayers"
+        style="@style/Buttons.Second"
+        android:layout_below="@id/btnOnePlayer"
+        android:onClick="onBtnTwoPlayerClick"
+        android:text="@string/two_players" />
+
+</RelativeLayout>

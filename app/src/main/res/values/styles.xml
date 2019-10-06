@@ -10,6 +10,10 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <style name="AppTheme.H" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="Logo">
         <item name="android:layout_width">338dp</item>
         <item name="android:layout_height">183dp</item>
@@ -51,7 +55,7 @@
     </style>
 
     <style name="OContainer">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">89dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
     </style>
@@ -73,6 +77,7 @@
         <item name="android:textColor">@color/pink</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="PlayerText.X">
@@ -132,12 +137,15 @@
     <style name="PlayerTheme.H">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="OContainer.X.H">
+        <item name="android:layout_marginLeft">0dp</item>
     </style>
 
     <style name="RowContainer.H">
         <item name="android:layout_width">280dp</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_height">90dp</item>
         <item name="android:layout_gravity">center</item>
     </style>
 
@@ -149,13 +157,6 @@
     <style name="PlayerButton.H">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-    </style>
-
-    <style name="Buttons.NewGame.H">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_margin">30dp</item>
-        <item name="android:layout_toLeftOf">@id/button00</item>
     </style>
 
 </resources>
