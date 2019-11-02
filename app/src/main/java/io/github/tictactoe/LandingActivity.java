@@ -14,12 +14,12 @@ public class LandingActivity extends AppCompatActivity {
         setContentView(R.layout.landing);
     }
 
-    public void onBtnOnePlayerClick(View v) {
+    public void onBtnStartGameClick(View v) {
         Intent myIntent = new Intent(getBaseContext(), Player1Activity.class);
         startActivity(myIntent);
     }
 
-    public void onBtnTwoPlayerClick(View v) {
+    public void onBtnScoreboardClick(View v) {
         Intent myIntent = new Intent(getBaseContext(), Players2Activity.class);
         startActivity(myIntent);
     }

@@ -9,16 +9,22 @@
 
     <!-- Buttons -->
     <Button
-        android:id="@+id/btnOnePlayer"
+        android:id="@+id/btnStartGame"
         style="@style/Buttons"
-        android:onClick="onBtnOnePlayerClick"
-        android:text="@string/one_player" />
+        android:onClick="onBtnStartGameClick"
+        android:text="@string/start_game" />
 
     <Button
-        android:id="@+id/btnTwoPlayers"
+        android:id="@+id/btnScoreboard"
         style="@style/Buttons.Second"
-        android:layout_below="@id/btnOnePlayer"
-        android:onClick="onBtnTwoPlayerClick"
-        android:text="@string/two_players" />
+        android:layout_below="@id/btnStartGame"
+        android:onClick="onBtnScoreboardClick"
+        android:text="@string/scoreboard" />
+
+    <Button
+        android:id="@+id/btnAddPlayer"
+        style="@style/Buttons.Second"
+        android:layout_below="@id/btnScoreboard"
+        android:text="@string/add_player" />
 
 </RelativeLayout>
