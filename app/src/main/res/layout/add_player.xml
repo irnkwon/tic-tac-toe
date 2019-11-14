@@ -8,6 +8,7 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PopupTheme"
     android:id="@+id/playerAddContainer"
     android:background="@color/pink">

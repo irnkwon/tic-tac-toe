@@ -11,13 +11,12 @@
     <!--
         Landing theme
     -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="background">@color/white</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
 
-    <style name="AppTheme.H" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme.H" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:gravity">center</item>
     </style>
 
@@ -29,11 +28,10 @@
         <item name="android:layout_above">@id/btnStartGame</item>
     </style>
 
-    <style name="Buttons">
-        <item name="android:layout_width">300dp</item>
-        <item name="android:layout_height">60dp</item>
-        <item name="background">@color/pink</item>
-        <item name="android:textColor">@color/white</item>
+    <style name="Buttons" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/pink</item>
+        <item name="android:layout_width">270dp</item>
+        <item name="android:layout_height">65dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="fontFamily">monospace</item>
