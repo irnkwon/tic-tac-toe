@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    select_player.xml
+    - vertical orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/PlayerTheme"
     android:id="@+id/playerSelectContainer">
@@ -29,19 +37,11 @@
         android:visibility="gone">
     </TextView>
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/test"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center"
-        android:gravity="center_vertical"
-        android:fontFamily="monospace"
-        android:text="test"
-        android:textAlignment="center"
-        android:textColor="@color/pink"
-        android:textSize="16sp"
-        android:visibility="visible">
-    </TextView>
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
 
 </LinearLayout>
 

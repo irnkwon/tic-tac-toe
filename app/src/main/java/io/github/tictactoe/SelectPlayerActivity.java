@@ -1,3 +1,10 @@
+/*
+    SelectPlayerActivity.java
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+*/
+
 package io.github.tictactoe;
 
 import android.app.Dialog;
@@ -7,9 +14,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +25,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
 
     private Dialog dialog;
     private PlayerDB db;
-    private LinearLayout linearLayout;
+    private RecyclerView recyclerView;
     EditText etPlayerName;
 
     @Override
@@ -26,7 +33,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_player);
 
-        linearLayout = findViewById(R.id.playerSelectContainer);
+        recyclerView = findViewById(R.id.test);
 
         dialog = new Dialog(this);
         db = new PlayerDB(this);
@@ -57,22 +64,11 @@ public class SelectPlayerActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
-    private void updateScreen() {
-        ArrayList<HashMap<String, String>> data = db.getPlayers();
-        int res = R.layout.select_player;
-        String[] from = {"name"};
-        int[] to = {R.id.test};
-
-        SimpleAdapter adapter = new SimpleAdapter(this, data, res, from, to);
-//        linearLayout.setAdapter(adapter);
-    }
-
     // Add a new player
     private void addPlayer() {
         String name = etPlayerName.getText().toString().trim();
 
         if (name.isEmpty()) {
-            // Error message
         } else {
             try {
                 db.insertPlayer(name);
@@ -83,4 +79,16 @@ public class SelectPlayerActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void updateScreen() {
+        ArrayList<HashMap<String, String>> data = db.getPlayers();
+
+        int res = R.layout.select_player;
+        String[] from = {"name"};
+        int[] to = {R.id.test};
+
+        SimpleAdapter adapter = new SimpleAdapter(this, data, res, from, to);
+//        recyclerView.setAdapter(adapter);
+    }
+    
 }

@@ -1,3 +1,10 @@
+/*
+    AddPlayerActivity.java
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+*/
+
 package io.github.tictactoe;
 
 import android.os.Bundle;
@@ -10,4 +17,5 @@ public class AddPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_player);
     }
+
 }

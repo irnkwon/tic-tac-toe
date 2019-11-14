@@ -1,3 +1,10 @@
+/*
+    ScoreboardActivity.java
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+*/
+
 package io.github.tictactoe;
 
 import android.content.Intent;
@@ -17,4 +24,5 @@ public class ScoreboardActivity extends AppCompatActivity {
         Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
         startActivity(myIntent);
     }
+    
 }

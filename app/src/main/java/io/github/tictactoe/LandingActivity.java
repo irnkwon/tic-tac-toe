@@ -1,3 +1,10 @@
+/*
+    LandingActivity.java
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+*/
+
 package io.github.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,17 +21,18 @@ public class LandingActivity extends AppCompatActivity {
     }
 
     public void onBtnStartGameClick(View v) {
-        Intent myIntent = new Intent(getBaseContext(), GameActivity.class);
-        startActivity(myIntent);
+        Intent i = new Intent(getBaseContext(), GameActivity.class);
+        startActivity(i);
     }
 
     public void onBtnSelectPlayerClick(View v) {
-        Intent myIntent = new Intent(getBaseContext(), SelectPlayerActivity.class);
-        startActivity(myIntent);
+        Intent i = new Intent(getBaseContext(), SelectPlayerActivity.class);
+        startActivity(i);
     }
 
     public void onBtnScoreboardClick(View v) {
-        Intent myIntent = new Intent(getBaseContext(), ScoreboardActivity.class);
-        startActivity(myIntent);
+        Intent i = new Intent(getBaseContext(), ScoreboardActivity.class);
+        startActivity(i);
     }
+
 }

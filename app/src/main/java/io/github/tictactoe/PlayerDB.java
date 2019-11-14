@@ -1,3 +1,10 @@
+/*
+    PlayerDB.java
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+*/
+
 package io.github.tictactoe;
 
 import android.content.ContentValues;
@@ -6,7 +13,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.content.Context;
 import android.database.Cursor;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -24,16 +30,13 @@ public class PlayerDB {
     public static final String DB_NAME = "player_db";
     public static final int DB_VERSION = 1;
 
-    // 1. DB Helper class
     private static class DBHelper extends SQLiteOpenHelper {
 
-        // 1.1 DB Helper Constructor
         public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,
                         int version) {
             super(context, name, factory, version);
         }
 
-        // 1.2 onCreate
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE players (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
@@ -41,7 +44,6 @@ public class PlayerDB {
                     "losses INTEGER NOT NULL DEFAULT 0, ties INTEGER NOT NULL DEFAULT 0)");
         }
 
-        // 1.3 onUpgrade
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE \"players\"");
@@ -63,7 +65,6 @@ public class PlayerDB {
         }
     }
 
-    // CREATE
     public void insertPlayer(String name) throws Exception {
 
         openWritableDB();
@@ -78,7 +79,6 @@ public class PlayerDB {
         closeDB();
     }
 
-    // READ
     ArrayList<HashMap<String, String>> getPlayers() {
         ArrayList<HashMap<String, String>> data = new ArrayList<>();
         openReadableDB();
@@ -98,4 +98,5 @@ public class PlayerDB {
         }
         return data;
     }
+
 }

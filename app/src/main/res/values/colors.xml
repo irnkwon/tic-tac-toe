@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    colors.xml
+    - saves all the colors used for the app
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+-->
+
 <resources>
 
     <color name="white">#FFFFFF</color>

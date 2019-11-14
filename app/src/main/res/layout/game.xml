@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    game.xml
+    - vertical orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PlayerTheme">
@@ -13,8 +21,7 @@
             style="@style/Buttons.NewGame" />
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- OX Images and turns -->
-
+    <!-- OX images and turns -->
     <LinearLayout style="@style/OXContainer">
         <LinearLayout
             style="@style/OContainer">

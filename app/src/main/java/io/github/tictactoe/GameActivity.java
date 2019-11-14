@@ -1,7 +1,13 @@
+/*
+    GameActivity.java
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+*/
+
 package io.github.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -10,8 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class GameActivity extends AppCompatActivity
-        implements View.OnClickListener {
+public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String winMsg = "winner!";
     private String drawMsg = "draw!";
@@ -111,11 +116,6 @@ public class GameActivity extends AppCompatActivity
         xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
     }
 
-    public void onBtnGoBackClick(View v) {
-        Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
-        startActivity(myIntent);
-    }
-
     @Override
     public void onClick(View v) {
         String allBtnTxt = aButtons[0][0].getText().toString() + aButtons[0][1].getText() +
@@ -124,7 +124,7 @@ public class GameActivity extends AppCompatActivity
                 + aButtons[2][2].getText();
 
         int nId = v.getId();
-        Button clickedBtn = (Button) findViewById(nId);
+        Button clickedBtn = findViewById(nId);
         TextView oTurnTxt = findViewById(R.id.oTurnTxt);
         TextView xTurnTxt = findViewById(R.id.xTurnTxt);
         String clickedBtnTxt = clickedBtn.getText().toString();
@@ -198,6 +198,11 @@ public class GameActivity extends AppCompatActivity
         }
 
         checkWinner();
+    }
+
+    public void onBtnGoBackClick(View v) {
+        Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
+        startActivity(myIntent);
     }
 
     public void checkWinner() {
@@ -285,4 +290,5 @@ public class GameActivity extends AppCompatActivity
         oTurnTxt.setText("");
         xTurnTxt.setText("x's turn");
     }
+
 }

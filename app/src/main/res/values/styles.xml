@@ -1,9 +1,16 @@
+<!--
+    styles.xml
+    - saves all the styles used for the app
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+-->
+
 <resources>
 
     <!--
         Landing theme
     -->
-
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="background">@color/white</item>
         <item name="android:layout_width">match_parent</item>
@@ -39,7 +46,6 @@
     <!--
         Player theme - Vertical
     -->
-
     <style name="PlayerTheme">
         <item name="android:orientation">vertical</item>
         <item name="android:layout_width">match_parent</item>
@@ -141,7 +147,6 @@
     <!--
         Player theme - Horizontal
     -->
-
     <style name="PlayerTheme.H">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
