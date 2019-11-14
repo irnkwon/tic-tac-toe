@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
     <string name="start_game">Start Game</string>
-    <string name="scoreboard">View Scoreboard</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="select_player">Select Player</string>
     <string name="add_player">Add Player</string>
+    <string name="no_player">No players added.\nPlease add and select players.</string>
+    <string name="no_record">No record available.</string>
     <string name="turn">x\'\s turn</string>
     <string name="new_game">New Game</string>
     <string name="go_back">Go Back</string>

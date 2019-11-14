@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PopupTheme"
+    android:id="@+id/playerAddContainer"
+    android:background="@color/pink">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please type the player name"
+        android:fontFamily="monospace"
+        android:textSize="16sp">
+    </TextView>
+    <EditText
+        android:id="@+id/etPlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:gravity="center">
+    </EditText>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="15dp">
+        <Button
+            android:id="@+id/btnAddPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_player"
+            android:fontFamily="monospace" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:fontFamily="monospace" />
+    </LinearLayout>
+
+</LinearLayout>
+

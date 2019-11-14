@@ -5,7 +5,7 @@
     -->
 
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:background">@color/white</item>
+        <item name="background">@color/white</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
@@ -25,11 +25,11 @@
     <style name="Buttons">
         <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">60dp</item>
-        <item name="android:background">@color/pink</item>
+        <item name="background">@color/pink</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
         <item name="android:layout_centerInParent">true</item>
-        <item name="android:fontFamily">monospace</item>
+        <item name="fontFamily">monospace</item>
     </style>
 
     <style name="Buttons.Second">
@@ -45,6 +45,14 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="PopupTheme">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">30dp</item>
     </style>
 
     <style name="OXContainer">
@@ -73,7 +81,7 @@
     <style name="PlayerText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">monospace</item>
+        <item name="fontFamily">monospace</item>
         <item name="android:textColor">@color/pink</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
@@ -103,21 +111,21 @@
     <style name="PlayerButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/pink</item>
+        <item name="background">@color/pink</item>
         <item name="android:layout_margin">3dp</item>
     </style>
 
     <style name="Toolbar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">70dp</item>
-        <item name="android:background">@color/pink</item>
+        <item name="background">@color/pink</item>
     </style>
 
     <style name="Buttons.NewGame">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:text">@string/new_game</item>
-        <item name="android:background">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">right</item>

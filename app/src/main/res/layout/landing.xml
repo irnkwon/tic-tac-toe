@@ -5,7 +5,7 @@
     tools:context=".LandingActivity">
 
     <!-- Logo -->
-    <ImageView style="@style/Logo"/>
+    <ImageView style="@style/Logo" />
 
     <!-- Buttons -->
     <Button
@@ -15,16 +15,17 @@
         android:text="@string/start_game" />
 
     <Button
-        android:id="@+id/btnScoreboard"
+        android:id="@+id/btnSelectPlayer"
         style="@style/Buttons.Second"
         android:layout_below="@id/btnStartGame"
-        android:onClick="onBtnScoreboardClick"
-        android:text="@string/scoreboard" />
+        android:onClick="onBtnSelectPlayerClick"
+        android:text="@string/select_player" />
 
     <Button
-        android:id="@+id/btnAddPlayer"
+        android:id="@+id/btnScoreboard"
         style="@style/Buttons.Second"
-        android:layout_below="@id/btnScoreboard"
-        android:text="@string/add_player" />
+        android:layout_below="@id/btnSelectPlayer"
+        android:onClick="onBtnScoreboardClick"
+        android:text="@string/scoreboard" />
 
 </RelativeLayout>

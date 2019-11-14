@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PlayerTheme.H">
 
-    <androidx.appcompat.widget.Toolbar
-        style="@style/Toolbar">
-        <!-- New game button -->
-        <Button
-            android:id="@+id/go_back"
+    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+        <!-- Go back button -->
+        <Button android:id="@+id/go_back"
             style="@style/Buttons.NewGame.GoBack" />
 
         <!-- New game button -->
-        <Button
-            android:id="@+id/new_game"
+        <Button android:id="@+id/new_game"
             style="@style/Buttons.NewGame" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -33,7 +31,7 @@
             <ImageView
                 android:id="@+id/oImage"
                 style="@style/OXImage"
-                android:src="@drawable/o"
+                app:srcCompat="@drawable/o"
                 />
         </LinearLayout>
 
@@ -113,7 +111,7 @@
             <ImageView
                 android:id="@+id/xImage"
                 style="@style/OXImage"
-                android:src="@drawable/x" />
+                app:srcCompat="@drawable/x" />
         </LinearLayout>
 
     </LinearLayout>

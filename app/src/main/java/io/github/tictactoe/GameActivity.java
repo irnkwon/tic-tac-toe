@@ -3,43 +3,112 @@ package io.github.tictactoe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Player1Activity extends AppCompatActivity
+public class GameActivity extends AppCompatActivity
         implements View.OnClickListener {
 
     private String winMsg = "winner!";
     private String drawMsg = "draw!";
 
     Button aButtons[][] = new Button[3][3];
+    private SharedPreferences mPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.player1);
+        setContentView(R.layout.game);
 
-        aButtons[0][0] = findViewById(R.id.button00);
-        aButtons[0][1] = findViewById(R.id.button01);
-        aButtons[0][2] = findViewById(R.id.button02);
-        aButtons[1][0] = findViewById(R.id.button10);
-        aButtons[1][1] = findViewById(R.id.button11);
-        aButtons[1][2] = findViewById(R.id.button12);
-        aButtons[2][0] = findViewById(R.id.button20);
-        aButtons[2][1] = findViewById(R.id.button21);
-        aButtons[2][2] = findViewById(R.id.button22);
+        Resources res = getResources();
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 3; i++) {
+                String idName = "button" + i + j;
+                aButtons[i][j] = findViewById(res.getIdentifier(idName,
+                        "id", getPackageName()));
+            }
+        }
 
         Button newGameButton = findViewById(R.id.new_game);
-
         for (int j = 0; j < 3; j++) {
             for (int i = 0; i < 3; i++) {
                 aButtons[i][j].setOnClickListener(this);
                 newGameButton.setOnClickListener(this);
             }
         }
+
+        mPrefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
+    }
+
+    @Override
+    protected void onPause() {
+
+        String button00 = aButtons[0][0].getText().toString();
+        String button01 = aButtons[0][1].getText().toString();
+        String button02 = aButtons[0][2].getText().toString();
+        String button10 = aButtons[1][0].getText().toString();
+        String button11 = aButtons[1][1].getText().toString();
+        String button12 = aButtons[1][2].getText().toString();
+        String button20 = aButtons[2][0].getText().toString();
+        String button21 = aButtons[2][1].getText().toString();
+        String button22 = aButtons[2][2].getText().toString();
+
+        SharedPreferences.Editor ed = mPrefs.edit();
+
+        ed.putString("button00", button00);
+        ed.putString("button01", button01);
+        ed.putString("button02", button02);
+        ed.putString("button10", button10);
+        ed.putString("button11", button11);
+        ed.putString("button12", button12);
+        ed.putString("button20", button20);
+        ed.putString("button21", button21);
+        ed.putString("button22", button22);
+
+        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
+        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
+        ed.putString("oTurnTxt", oTurnTxt.getText().toString());
+        ed.putString("xTurnTxt", xTurnTxt.getText().toString());
+
+        ed.commit();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        aButtons[0][0].setText(mPrefs.getString("button00", ""));
+        aButtons[0][1].setText(mPrefs.getString("button01", ""));
+        aButtons[0][2].setText(mPrefs.getString("button02", ""));
+        aButtons[1][0].setText(mPrefs.getString("button10", ""));
+        aButtons[1][1].setText(mPrefs.getString("button11", ""));
+        aButtons[1][2].setText(mPrefs.getString("button12", ""));
+        aButtons[2][0].setText(mPrefs.getString("button20", ""));
+        aButtons[2][1].setText(mPrefs.getString("button21", ""));
+        aButtons[2][2].setText(mPrefs.getString("button22", ""));
+
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 3; i++) {
+                String idName = "button" + i + j;
+                if (mPrefs.getString(idName, "") == "o") {
+                    aButtons[i][j].setBackgroundResource(R.drawable.o);
+                }
+                if (mPrefs.getString(idName, "") == "x") {
+                    aButtons[i][j].setBackgroundResource(R.drawable.x);
+                }
+                aButtons[i][j].setTextScaleX(0);
+            }
+        }
+
+        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
+        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
+        oTurnTxt.setText(mPrefs.getString("oTurnTxt", ""));
+        xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
     }
 
     public void onBtnGoBackClick(View v) {
@@ -203,5 +272,17 @@ public class Player1Activity extends AppCompatActivity
 
     public void startNewGame() {
         this.recreate();
+
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 3; i++) {
+                aButtons[i][j].setText("");
+                aButtons[i][j].setBackgroundResource(0);
+            }
+        }
+
+        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
+        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
+        oTurnTxt.setText("");
+        xTurnTxt.setText("x's turn");
     }
 }

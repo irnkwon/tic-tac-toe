@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PlayerTheme">
 
-    <androidx.appcompat.widget.Toolbar
-        style="@style/Toolbar">
-        <!-- New game button -->
-        <Button
-            android:id="@+id/go_back"
+    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+        <!-- Go back button -->
+        <Button android:id="@+id/go_back"
             style="@style/Buttons.NewGame.GoBack" />
 
         <!-- New game button -->
@@ -17,7 +16,6 @@
     <!-- OX Images and turns -->
 
     <LinearLayout style="@style/OXContainer">
-
         <LinearLayout
             style="@style/OContainer">
             <TextView
@@ -28,7 +26,7 @@
             <ImageView
                 android:id="@+id/oImage"
                 style="@style/OXImage"
-                android:src="@drawable/o"
+                app:srcCompat="@drawable/o"
             />
         </LinearLayout>
 
@@ -42,10 +40,9 @@
             <ImageView
                 android:id="@+id/xImage"
                 style="@style/OXImage"
-                android:src="@drawable/x"
+                app:srcCompat="@drawable/x"
             />
         </LinearLayout>
-
     </LinearLayout>
 
     <!-- Buttons for Tic Tac Toe -->

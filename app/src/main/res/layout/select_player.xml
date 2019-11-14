@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PlayerTheme"
+    android:id="@+id/playerSelectContainer">
+
+    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+        <!-- Go back button -->
+        <Button android:id="@+id/go_back"
+            style="@style/Buttons.NewGame.GoBack" />
+
+        <!-- New game button -->
+        <Button android:id="@+id/add_player"
+            style="@style/Buttons.NewGame"
+            android:text="@string/add_player"
+            android:onClick="showPlayerAdd"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/no_player"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:fontFamily="monospace"
+        android:text="@string/no_player"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textSize="16sp"
+        android:visibility="gone">
+    </TextView>
+
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:fontFamily="monospace"
+        android:text="test"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textSize="16sp"
+        android:visibility="visible">
+    </TextView>
+
+</LinearLayout>
+
