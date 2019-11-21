@@ -3,7 +3,7 @@
     - saves all the styles used for the app
 
     Created by Irene Kwon
-    Last Modified at Nov 14, 2019
+    Last Modified at Nov 20, 2019
 -->
 
 <resources>
@@ -14,6 +14,7 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="colorPrimaryDark">@color/pink</item> <!-- Status bar -->
     </style>
 
     <style name="AppTheme.H" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -112,7 +113,7 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="PlayerButton">
+    <style name="Buttons.PlayerButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="background">@color/pink</item>
@@ -165,7 +166,7 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
-    <style name="PlayerButton.H">
+    <style name="Buttons.PlayerButton.H">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>

@@ -65,7 +65,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-        dialog.show(); // dialog.dismiss();
+        dialog.show();
     }
 
     public void onBtnGoBackClick(View v) {

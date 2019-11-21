@@ -40,13 +40,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_player"
-            android:fontFamily="monospace" />
+            android:fontFamily="monospace"
+            style="@style/Buttons"/>
         <Button
             android:id="@+id/btnCloseDialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
-            android:fontFamily="monospace" />
+            android:fontFamily="monospace"
+            style="@style/Buttons"/>
     </LinearLayout>
 
 </LinearLayout>

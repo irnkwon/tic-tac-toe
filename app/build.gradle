@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java/utilities', 'src/main/java/io.github.tictactoe/utilities', 'src/main/java/io.github.tictactoe/irene']
+        }
+    }
 }
 
 dependencies {
