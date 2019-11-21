@@ -4,7 +4,7 @@
     - vertical orientation
 
     Created by Irene Kwon
-    Last Modified at Nov 14, 2019
+    Last Modified at Nov 20, 2019
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -42,6 +42,7 @@
             android:text="@string/add_player"
             android:fontFamily="monospace" />
         <Button
+            android:id="@+id/btnCloseDialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"

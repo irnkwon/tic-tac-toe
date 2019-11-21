@@ -2,7 +2,7 @@
     SelectPlayerActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 14, 2019
+    Last Modified at Nov 20, 2019
 */
 
 package io.github.tictactoe;
@@ -43,9 +43,11 @@ public class SelectPlayerActivity extends AppCompatActivity {
     public void showPlayerAdd(View v) {
 
         Button btnAddPlayer;
+        Button btnCloseDialog;
 
         dialog.setContentView(R.layout.add_player);
         btnAddPlayer = dialog.findViewById(R.id.btnAddPlayer);
+        btnCloseDialog = dialog.findViewById(R.id.btnCloseDialog);
         etPlayerName = dialog.findViewById(R.id.etPlayerName);
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -54,6 +56,13 @@ public class SelectPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addPlayer();
+            }
+        });
+
+        btnCloseDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
             }
         });
         dialog.show(); // dialog.dismiss();
