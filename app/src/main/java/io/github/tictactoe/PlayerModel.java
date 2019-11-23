@@ -1,5 +1,5 @@
 /*
-    PlayerDB.java
+    PlayerModel.java
 
     Created by Irene Kwon
     Last Modified at Nov 22, 2019
@@ -7,12 +7,12 @@
 
 package io.github.tictactoe;
 
-public class Player {
+public class PlayerModel {
 
     private int id;
     private String name, wins, losses, ties;
 
-    public Player(int id, String name, String wins, String losses, String ties) {
+    public PlayerModel(int id, String name, String wins, String losses, String ties) {
         this.id = id;
         this.name = name;
         this.wins = wins;

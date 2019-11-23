@@ -43,7 +43,7 @@
     </style>
 
     <!--
-        Player theme - Vertical
+        PlayerModel theme - Vertical
     -->
     <style name="PlayerTheme">
         <item name="android:orientation">vertical</item>
@@ -144,7 +144,7 @@
     </style>
 
     <!--
-        Player theme - Horizontal
+        PlayerModel theme - Horizontal
     -->
     <style name="PlayerTheme.H">
         <item name="android:layout_width">match_parent</item>
