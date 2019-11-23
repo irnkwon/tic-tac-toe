@@ -2,7 +2,7 @@
     PlayerDB.java
 
     Created by Irene Kwon
-    Last Modified at Nov 14, 2019
+    Last Modified at Nov 22, 2019
 */
 
 package io.github.tictactoe;
@@ -10,7 +10,6 @@ package io.github.tictactoe;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import android.content.Context;
 import android.database.Cursor;
 import java.util.ArrayList;
@@ -18,17 +17,25 @@ import java.util.HashMap;
 
 public class PlayerDB {
 
-    private SQLiteDatabase db;
-    private DBHelper dbHelper;
-
-    public PlayerDB(Context context) {
-        dbHelper = new DBHelper(context, DB_NAME, null, DB_VERSION);
-        openWritableDB();
-        closeDB();
-    }
+    // Constants
 
     public static final String DB_NAME = "player_db";
     public static final int DB_VERSION = 1;
+
+    private SQLiteDatabase db;
+    private DBHelper dbHelper;
+
+    // PlayerDB Constructor
+
+    public PlayerDB(Context context) {
+
+        dbHelper = new DBHelper(context, DB_NAME, null, DB_VERSION);
+        openWritableDB();
+        closeDB();
+
+    }
+
+    // Database Helper
 
     private static class DBHelper extends SQLiteOpenHelper {
 
@@ -46,42 +53,48 @@ public class PlayerDB {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE \"players\"");
-            Log.d("DB Upgrade", "Upgrading db from version " + oldVersion + " to "
-                + newVersion);
+            db.execSQL("DROP TABLE IF EXISTS \"players\"");
             this.onCreate(db);
         }
+
     }
 
     private void openReadableDB() {
         db = dbHelper.getReadableDatabase();
     }
+
     private void openWritableDB() {
         db = dbHelper.getWritableDatabase();
     }
+
     private void closeDB() {
         if (db != null) {
             db.close();
         }
     }
 
-    public void insertPlayer(String name) throws Exception {
+    // User Defined Methods
+
+    public void addPlayer(String name) throws Exception {
 
         openWritableDB();
-        ContentValues content = new ContentValues();
-        content.put("name", name);
+        ContentValues cv = new ContentValues();
+        cv.put("name", name);
 
-        long nResult = db.insert("players", null, content);
+        long nResult = db.insert("players", null, cv);
 
         if (nResult == -1) {
             throw new Exception("No Data");
         }
+
         closeDB();
+
     }
 
-    ArrayList<HashMap<String, String>> getPlayers() {
-        ArrayList<HashMap<String, String>> data = new ArrayList<>();
+    public ArrayList<HashMap<String, String>> getPlayers() {
+
         openReadableDB();
+        ArrayList<HashMap<String, String>> data = new ArrayList<>();
 
         Cursor cursor = db.rawQuery("SELECT name, wins, losses, ties FROM players",
                 null );
@@ -96,6 +109,7 @@ public class PlayerDB {
             cursor.close();
             closeDB();
         }
+        
         return data;
     }
 

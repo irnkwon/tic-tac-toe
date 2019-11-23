@@ -2,7 +2,7 @@
     SelectPlayerActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 20, 2019
+    Last Modified at Nov 22, 2019
 */
 
 package io.github.tictactoe;
@@ -80,7 +80,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
         if (name.isEmpty()) {
         } else {
             try {
-                db.insertPlayer(name);
+                db.addPlayer(name);
                 updateScreen();
                 etPlayerName.setText("");
             } catch (Exception e) {
