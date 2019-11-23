@@ -14,11 +14,17 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import android.widget.AdapterView.OnItemClickListener;
+import androidx.cardview.widget.CardView;
+
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -43,6 +49,16 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
         db = new PlayerDB(this);
 
         updateScreen();
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+                CardView clickedView = (CardView) v;
+                Toast.makeText(SelectPlayerActivity.this,
+                "Item with id ["+id+"] - Position ["+pos+"] - " +
+                    "["+clickedView.getId()+"]", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
