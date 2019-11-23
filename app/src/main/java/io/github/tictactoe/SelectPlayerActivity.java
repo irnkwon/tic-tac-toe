@@ -30,7 +30,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
     private PlayerDB db;
     private ListView listview;
     private CardView cardview;
-    EditText etPlayerName;
+    private EditText etPlayerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
         db = new PlayerDB(this);
         updateScreen();
     }
+
 
     public void showPlayerAdd(View v) {
 

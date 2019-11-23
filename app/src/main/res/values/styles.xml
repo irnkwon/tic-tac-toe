@@ -141,7 +141,6 @@
     <style name="Buttons.NewGame.GoBack">
         <item name="android:text">@string/go_back</item>
         <item name="android:layout_gravity">left</item>
-        <item name="android:onClick">onBtnGoBackClick</item>
     </style>
 
     <!--

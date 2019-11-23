@@ -23,6 +23,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button aButtons[][] = new Button[3][3];
     private Button newGameButton;
+    private Button goBackButton;
     private SharedPreferences mPrefs;
     private int playerOPoints;
     private int playerXPoints;
@@ -44,6 +45,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         xPoints = findViewById(R.id.xWinPoint);
 
         newGameButton = findViewById(R.id.new_game);
+        goBackButton = findViewById(R.id.go_back);
 
         Resources res = getResources();
         for (int j = 0; j < 3; j++) {
@@ -58,6 +60,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             for (int i = 0; i < 3; i++) {
                 aButtons[i][j].setOnClickListener(this);
                 newGameButton.setOnClickListener(this);
+                goBackButton.setOnClickListener(this);
             }
         }
 
@@ -205,12 +208,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             startNewGame();
         }
 
-        checkWinner();
-    }
+        if (clickedBtnTxt.equals("Go Back")) {
+            Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
+            startActivity(myIntent);
+        }
 
-    private void onBtnGoBackClick(View v) {
-        Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
-        startActivity(myIntent);
+        checkWinner();
     }
 
     private void checkWinner() {
@@ -280,17 +283,25 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             oTurnTxt.setText(drawMsg);
             xTurnTxt.setText(drawMsg);
+            playerOPoints++;
+            playerXPoints++;
+            oPoints.setText(Integer.toString(playerOPoints));
+            xPoints.setText(Integer.toString(playerXPoints));
         }
     }
 
     private void startNewGame() {
 
-        this.recreate();
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 3; i++) {
+                aButtons[i][j].setEnabled(true);
+            }
+        }
 
         for (int j = 0; j < 3; j++) {
             for (int i = 0; i < 3; i++) {
                 aButtons[i][j].setText("");
-                aButtons[i][j].setBackgroundResource(0);
+                aButtons[i][j].setBackgroundResource(android.R.drawable.btn_default);
             }
         }
 
