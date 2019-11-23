@@ -21,16 +21,29 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private String winMsg = "winner!";
     private String drawMsg = "draw!";
 
-    Button aButtons[][] = new Button[3][3];
+    private Button aButtons[][] = new Button[3][3];
+    private Button newGameButton;
     private SharedPreferences mPrefs;
-    int playerOPoints;
-    int playerXPoints;
+    private int playerOPoints;
+    private int playerXPoints;
+
+    private TextView oTurnTxt;
+    private TextView xTurnTxt;
+    private TextView oPoints;
+    private TextView xPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
+
+        oTurnTxt = findViewById(R.id.oTurnTxt);
+        xTurnTxt = findViewById(R.id.xTurnTxt);
+        oPoints = findViewById(R.id.oWinPoint);
+        xPoints = findViewById(R.id.xWinPoint);
+
+        newGameButton = findViewById(R.id.new_game);
 
         Resources res = getResources();
         for (int j = 0; j < 3; j++) {
@@ -41,7 +54,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        Button newGameButton = findViewById(R.id.new_game);
         for (int j = 0; j < 3; j++) {
             for (int i = 0; i < 3; i++) {
                 aButtons[i][j].setOnClickListener(this);
@@ -77,8 +89,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         ed.putString("button21", button21);
         ed.putString("button22", button22);
 
-        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
-        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
         ed.putString("oTurnTxt", oTurnTxt.getText().toString());
         ed.putString("xTurnTxt", xTurnTxt.getText().toString());
 
@@ -112,8 +122,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
-        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
         oTurnTxt.setText(mPrefs.getString("oTurnTxt", ""));
         xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
     }
@@ -127,8 +135,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         int nId = v.getId();
         Button clickedBtn = findViewById(nId);
-        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
-        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
         String clickedBtnTxt = clickedBtn.getText().toString();
 
         if (allBtnTxt == "" && clickedBtnTxt == "") {
@@ -202,12 +208,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         checkWinner();
     }
 
-    public void onBtnGoBackClick(View v) {
+    private void onBtnGoBackClick(View v) {
         Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
         startActivity(myIntent);
     }
 
-    public void checkWinner() {
+    private void checkWinner() {
         String firstRow = aButtons[0][0].getText().toString() + aButtons[0][1].getText() +
                 aButtons[0][2].getText();
         String secondRow = aButtons[1][0].getText().toString() + aButtons[1][1].getText() +
@@ -226,11 +232,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         String rightDiagonal
                 = aButtons[0][2].getText().toString() + aButtons[1][1].getText() +
                 aButtons[2][0].getText();
-
-        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
-        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
-        TextView oPoints = findViewById(R.id.oWinPoint);
-        TextView xPoints = findViewById(R.id.xWinPoint);
 
         if (firstRow.equals("xxx") || secondRow.equals("xxx") || lastRow.equals("xxx") ||
                 firstColumn.equals("xxx") || secondColumn.equals("xxx") || lastColumn.equals("xxx") ||
@@ -266,8 +267,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void checkDraw() {
-        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
-        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
 
         if (aButtons[0][0].getText().length() > 0 && aButtons[0][1].getText().length() > 0 &&
                 aButtons[0][2].getText().length() > 0 && aButtons[1][0].getText().length() > 0 &&
@@ -284,7 +283,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void startNewGame() {
+    private void startNewGame() {
 
         this.recreate();
 
@@ -295,13 +294,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        TextView oTurnTxt = findViewById(R.id.oTurnTxt);
-        TextView xTurnTxt = findViewById(R.id.xTurnTxt);
         oTurnTxt.setText("");
         xTurnTxt.setText("x's turn");
 
-        TextView oPoints = findViewById(R.id.oWinPoint);
-        TextView xPoints = findViewById(R.id.xWinPoint);
         oPoints.setText(Integer.toString(playerOPoints));
         xPoints.setText(Integer.toString(playerXPoints));
 
