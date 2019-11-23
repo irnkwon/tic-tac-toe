@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/tic_tac_toe_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GameActivity" />
-        <activity android:name=".SelectPlayerActivity" />
+        <activity android:name=".Activities.GameActivity" />
+        <activity android:name=".Activities.SelectPlayerActivity" />
         <activity android:name=".AddPlayerActivity" />
-        <activity android:name=".ScoreboardActivity" />
-        <activity android:name=".LandingActivity">
+        <activity android:name=".Activities.ScoreboardActivity" />
+        <activity android:name=".Activities.LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

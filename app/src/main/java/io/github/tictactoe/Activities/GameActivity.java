@@ -2,10 +2,10 @@
     GameActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 14, 2019
+    Last Modified at Nov 22, 2019
 */
 
-package io.github.tictactoe;
+package io.github.tictactoe.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import io.github.tictactoe.Activities.LandingActivity;
+import io.github.tictactoe.R;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 

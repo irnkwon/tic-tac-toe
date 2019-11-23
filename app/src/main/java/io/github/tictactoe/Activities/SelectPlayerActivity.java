@@ -5,7 +5,7 @@
     Last Modified at Nov 22, 2019
 */
 
-package io.github.tictactoe;
+package io.github.tictactoe.Activities;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -21,6 +21,9 @@ import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import io.github.tictactoe.PlayerDB;
+import io.github.tictactoe.R;
+
 public class SelectPlayerActivity extends AppCompatActivity {
 
     private Dialog dialog;
@@ -33,7 +36,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_player);
 
-        recyclerView = findViewById(R.id.test);
+        recyclerView = findViewById(R.id.players);
 
         dialog = new Dialog(this);
         db = new PlayerDB(this);
@@ -94,7 +97,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
 
         int res = R.layout.select_player;
         String[] from = {"name"};
-        int[] to = {R.id.test};
+        int[] to = {R.id.players};
 
         SimpleAdapter adapter = new SimpleAdapter(this, data, res, from, to);
 //        recyclerView.setAdapter(adapter);

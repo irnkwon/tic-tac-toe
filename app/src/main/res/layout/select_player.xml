@@ -38,7 +38,7 @@
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/test"
+        android:id="@+id/players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scrollbars="vertical" />

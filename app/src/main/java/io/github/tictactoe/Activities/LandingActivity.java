@@ -2,15 +2,16 @@
     LandingActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 14, 2019
+    Last Modified at Nov 22, 2019
 */
 
-package io.github.tictactoe;
+package io.github.tictactoe.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import io.github.tictactoe.R;
 
 public class LandingActivity extends AppCompatActivity {
 

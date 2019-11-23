@@ -109,7 +109,7 @@ public class PlayerDB {
             cursor.close();
             closeDB();
         }
-        
+
         return data;
     }
 
