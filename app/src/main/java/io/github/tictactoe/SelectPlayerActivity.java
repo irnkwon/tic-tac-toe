@@ -5,7 +5,7 @@
     Last Modified at Nov 23, 2019
 */
 
-package io.github.tictactoe.Activities;
+package io.github.tictactoe;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -23,9 +23,6 @@ import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import io.github.tictactoe.PlayerDB;
-import io.github.tictactoe.R;
-import com.google.android.material.card.MaterialCardView;
 
 public class SelectPlayerActivity extends AppCompatActivity {
 

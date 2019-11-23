@@ -5,22 +5,16 @@
     Last Modified at Nov 23, 2019
 */
 
-package io.github.tictactoe.Activities;
+package io.github.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import io.github.tictactoe.Activities.LandingActivity;
-import io.github.tictactoe.PlayerDB;
-import io.github.tictactoe.R;
 
 public class ScoreboardActivity extends AppCompatActivity {
 

@@ -5,13 +5,12 @@
     Last Modified at Nov 22, 2019
 */
 
-package io.github.tictactoe.Activities;
+package io.github.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import io.github.tictactoe.R;
 
 public class LandingActivity extends AppCompatActivity {
 
