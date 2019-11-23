@@ -8,6 +8,7 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PlayerTheme"
     android:id="@+id/playerSelectContainer">
 
@@ -17,31 +18,36 @@
             style="@style/Buttons.NewGame.GoBack" />
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorHeight="0dp"
+        android:clickable="false"
+        android:focusable="false"
+        app:tabRippleColor="@color/white"
+        app:tabTextColor="@color/pink"
+        android:layout_marginBottom="30dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Player" />
-        <TextView
-            android:layout_width="wrap_content"
+            android:text="Player"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Wins" />
-        <TextView
-            android:layout_width="wrap_content"
+            android:text="Wins"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Losses" />
+            android:text="Losses"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ties"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/source_sans_pro"
-            android:text="Ties" />
-
-    </LinearLayout>
+    </com.google.android.material.tabs.TabLayout>
 
     <TextView
         android:id="@+id/no_player"

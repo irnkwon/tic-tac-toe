@@ -14,13 +14,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,7 +27,6 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
     private Dialog dialog;
     private PlayerDB db;
     private ListView listview;
-    private CardView cardview;
     private EditText etPlayerName;
     private Button goBackButton;
 
@@ -39,12 +36,12 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.select_player);
 
         listview = findViewById(R.id.listview);
-        cardview = findViewById(R.id.cardview);
         goBackButton = findViewById(R.id.go_back);
         goBackButton.setOnClickListener(this);
 
         dialog = new Dialog(this);
         db = new PlayerDB(this);
+
         updateScreen();
     }
 
@@ -76,6 +73,7 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View view) {
                 addPlayer();
+                dialog.dismiss();
             }
         });
 
@@ -96,7 +94,7 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
         if (name.isEmpty()) {
         } else {
             try {
-                db.addPlayer(name);
+                db.addPlayer(name.toUpperCase());
                 updateScreen();
                 etPlayerName.setText("");
             } catch (Exception e) {
@@ -114,7 +112,8 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
 
         SimpleAdapter adapter = new SimpleAdapter(this, data, res, from, to);
         listview.setAdapter(adapter);
+
     }
-    
+
 }
 

@@ -4,7 +4,7 @@
     - vertical orientation
 
     Created by Irene Kwon
-    Last Modified at Nov 20, 2019
+    Last Modified at Nov 23, 2019
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,7 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please type the player name"
-        android:fontFamily="monospace"
         android:textSize="16sp">
     </TextView>
     <EditText
@@ -25,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="8"
-        android:fontFamily="monospace"
         android:textSize="16sp"
         android:gravity="center">
     </EditText>
@@ -40,14 +38,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_player"
-            android:fontFamily="monospace"
             style="@style/Buttons"/>
         <Button
             android:id="@+id/btnCloseDialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
-            android:fontFamily="monospace"
             style="@style/Buttons"/>
     </LinearLayout>
 
