@@ -24,13 +24,14 @@ import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SelectPlayerActivity extends AppCompatActivity {
+public class SelectPlayerActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Dialog dialog;
     private PlayerDB db;
     private ListView listview;
     private CardView cardview;
     private EditText etPlayerName;
+    private Button goBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,25 @@ public class SelectPlayerActivity extends AppCompatActivity {
 
         listview = findViewById(R.id.listview);
         cardview = findViewById(R.id.cardview);
+        goBackButton = findViewById(R.id.go_back);
+        goBackButton.setOnClickListener(this);
 
         dialog = new Dialog(this);
         db = new PlayerDB(this);
         updateScreen();
     }
 
+    @Override
+    public void onClick(View v) {
+        int nId = v.getId();
+        Button clickedBtn = findViewById(nId);
+        String clickedBtnTxt = clickedBtn.getText().toString();
+
+        if (clickedBtnTxt.equals("Go Back")) {
+            Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
+            startActivity(myIntent);
+        }
+    }
 
     public void showPlayerAdd(View v) {
 
@@ -73,11 +87,6 @@ public class SelectPlayerActivity extends AppCompatActivity {
         });
         dialog.show();
 
-    }
-
-    public void onBtnGoBackClick(View v) {
-        Intent myIntent = new Intent(getBaseContext(), LandingActivity.class);
-        startActivity(myIntent);
     }
 
     // Add a new player
