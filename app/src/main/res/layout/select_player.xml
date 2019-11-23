@@ -4,7 +4,7 @@
     - vertical orientation
 
     Created by Irene Kwon
-    Last Modified at Nov 14, 2019
+    Last Modified at Nov 23, 2019
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -37,11 +37,10 @@
         android:visibility="gone">
     </TextView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/players"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
 

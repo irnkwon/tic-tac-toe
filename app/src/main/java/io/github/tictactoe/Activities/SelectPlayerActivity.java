@@ -2,7 +2,7 @@
     SelectPlayerActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 22, 2019
+    Last Modified at Nov 23, 2019
 */
 
 package io.github.tictactoe.Activities;
@@ -14,13 +14,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import io.github.tictactoe.PlayerDB;
 import io.github.tictactoe.R;
 
@@ -28,7 +27,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
 
     private Dialog dialog;
     private PlayerDB db;
-    private RecyclerView recyclerView;
+    private ListView listview;
     EditText etPlayerName;
 
     @Override
@@ -36,7 +35,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_player);
 
-        recyclerView = findViewById(R.id.players);
+        listview = findViewById(R.id.listview);
 
         dialog = new Dialog(this);
         db = new PlayerDB(this);
@@ -95,12 +94,13 @@ public class SelectPlayerActivity extends AppCompatActivity {
     private void updateScreen() {
         ArrayList<HashMap<String, String>> data = db.getPlayers();
 
-        int res = R.layout.select_player;
-        String[] from = {"name"};
-        int[] to = {R.id.players};
+        int res = R.layout.player_list;
+        String[] from = { "name" };
+        int[] to = {R.id.player_name};
 
         SimpleAdapter adapter = new SimpleAdapter(this, data, res, from, to);
-//        recyclerView.setAdapter(adapter);
+        listview.setAdapter(adapter);
     }
     
 }
+

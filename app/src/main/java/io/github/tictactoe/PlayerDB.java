@@ -2,7 +2,7 @@
     PlayerDB.java
 
     Created by Irene Kwon
-    Last Modified at Nov 22, 2019
+    Last Modified at Nov 23, 2019
 */
 
 package io.github.tictactoe;
@@ -104,6 +104,7 @@ public class PlayerDB {
             map.put("wins", cursor.getString(1));
             map.put("losses", cursor.getString(2));
             map.put("ties", cursor.getString(3));
+            data.add(map);
         }
         if (cursor != null) {
             cursor.close();
