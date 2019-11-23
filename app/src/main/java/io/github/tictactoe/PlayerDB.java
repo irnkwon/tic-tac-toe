@@ -96,8 +96,8 @@ public class PlayerDB {
         openReadableDB();
         ArrayList<HashMap<String, String>> data = new ArrayList<>();
 
-        Cursor cursor = db.rawQuery("SELECT name, wins, losses, ties FROM players",
-                null );
+        Cursor cursor = db.rawQuery("SELECT name, wins, losses, ties FROM players " +
+            "ORDER BY wins DESC", null );
         while (cursor.moveToNext()) {
             HashMap<String, String> map = new HashMap<>();
             map.put("name", cursor.getString(0));

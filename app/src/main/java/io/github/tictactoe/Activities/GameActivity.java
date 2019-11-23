@@ -2,7 +2,7 @@
     GameActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 22, 2019
+    Last Modified at Nov 23, 2019
 */
 
 package io.github.tictactoe.Activities;
@@ -26,6 +26,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     Button aButtons[][] = new Button[3][3];
     private SharedPreferences mPrefs;
+    int playerOPoints;
+    int playerXPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,6 +232,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         TextView oTurnTxt = findViewById(R.id.oTurnTxt);
         TextView xTurnTxt = findViewById(R.id.xTurnTxt);
+        TextView oPoints = findViewById(R.id.oWinPoint);
+        TextView xPoints = findViewById(R.id.xWinPoint);
 
         if (firstRow.equals("xxx") || secondRow.equals("xxx") || lastRow.equals("xxx") ||
                 firstColumn.equals("xxx") || secondColumn.equals("xxx") || lastColumn.equals("xxx") ||
@@ -242,10 +246,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             oTurnTxt.setText("");
             xTurnTxt.setText(winMsg);
+            playerXPoints++;
+            xPoints.setText(Integer.toString(playerXPoints));
         }
         else if (firstRow.equals("ooo") || secondRow.equals("ooo") || lastRow.equals("ooo") ||
                 firstColumn.equals("ooo") || secondColumn.equals("ooo") || lastColumn.equals("ooo")
                 || leftDiagonal.equals("ooo") || rightDiagonal.equals("ooo")) {
+
             for (int j = 0; j < 3; j++) {
                 for (int i = 0; i < 3; i++) {
                     aButtons[i][j].setEnabled(false);
@@ -253,6 +260,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             xTurnTxt.setText("");
             oTurnTxt.setText(winMsg);
+            playerOPoints++;
+            oPoints.setText(Integer.toString(playerOPoints));
         }
         else {
             checkDraw();
@@ -279,6 +288,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void startNewGame() {
+
         this.recreate();
 
         for (int j = 0; j < 3; j++) {
@@ -292,6 +302,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         TextView xTurnTxt = findViewById(R.id.xTurnTxt);
         oTurnTxt.setText("");
         xTurnTxt.setText("x's turn");
+
+        TextView oPoints = findViewById(R.id.oWinPoint);
+        TextView xPoints = findViewById(R.id.xWinPoint);
+        oPoints.setText(Integer.toString(playerOPoints));
+        xPoints.setText(Integer.toString(playerXPoints));
+
     }
 
 }

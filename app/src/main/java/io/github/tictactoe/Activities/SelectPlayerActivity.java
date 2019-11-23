@@ -14,20 +14,25 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import io.github.tictactoe.PlayerDB;
 import io.github.tictactoe.R;
+import com.google.android.material.card.MaterialCardView;
 
 public class SelectPlayerActivity extends AppCompatActivity {
 
     private Dialog dialog;
     private PlayerDB db;
     private ListView listview;
+    private CardView cardview;
     EditText etPlayerName;
 
     @Override
@@ -36,6 +41,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
         setContentView(R.layout.select_player);
 
         listview = findViewById(R.id.listview);
+        cardview = findViewById(R.id.cardview);
 
         dialog = new Dialog(this);
         db = new PlayerDB(this);
@@ -68,6 +74,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+
     }
 
     public void onBtnGoBackClick(View v) {
@@ -95,7 +102,7 @@ public class SelectPlayerActivity extends AppCompatActivity {
         ArrayList<HashMap<String, String>> data = db.getPlayers();
 
         int res = R.layout.player_list;
-        String[] from = { "name" };
+        String[] from = {"name"};
         int[] to = {R.id.player_name};
 
         SimpleAdapter adapter = new SimpleAdapter(this, data, res, from, to);

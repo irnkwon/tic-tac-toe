@@ -4,7 +4,7 @@
     - vertical orientation
 
     Created by Irene Kwon
-    Last Modified at Nov 20, 2019
+    Last Modified at Nov 23, 2019
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,6 +26,12 @@
         <LinearLayout
             style="@style/OContainer">
             <TextView
+                android:id="@+id/oWinPoint"
+                style="@style/PlayerText"
+                android:text="0"
+            >
+            </TextView>
+            <TextView
                 android:id="@+id/oTurnTxt"
                 style="@style/PlayerText"
             >
@@ -39,6 +45,12 @@
 
         <LinearLayout
             style="@style/OContainer.X">
+            <TextView
+                android:id="@+id/xWinPoint"
+                style="@style/PlayerText"
+                android:text="0"
+            >
+            </TextView>
             <TextView
                 android:id="@+id/xTurnTxt"
                 style="@style/PlayerText.X"
