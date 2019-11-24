@@ -28,7 +28,8 @@
 
             <TextView
                 android:id="@+id/oTurnTxt"
-                style="@style/PlayerText">
+                style="@style/PlayerText"
+                android:paddingBottom="5dp">
             </TextView>
             <ImageView
                 android:id="@+id/oImage"
@@ -53,7 +54,8 @@
 
             <TextView
                 android:id="@+id/xTurnTxt"
-                style="@style/PlayerText">
+                style="@style/PlayerText"
+                android:paddingBottom="5dp">
             </TextView>
             <ImageView
                 android:id="@+id/xImage"
@@ -62,7 +64,8 @@
             />
             <TextView
                 android:id="@+id/xPlayerName"
-                style="@style/PlayerText">
+                style="@style/PlayerText"
+                android:paddingTop="10dp">
             </TextView>
             <TextView
                 android:id="@+id/xWinPoint"

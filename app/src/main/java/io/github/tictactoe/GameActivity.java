@@ -313,6 +313,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             oTurnTxt.setText("");
             xTurnTxt.setText(winMsg);
+            oImage.setImageAlpha(50);
+            xImage.setImageAlpha(255);
             playerXWins++;
             playerOLosses++;
             playerXPoints++;
@@ -331,6 +333,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             xTurnTxt.setText("");
             oTurnTxt.setText(winMsg);
+            oImage.setImageAlpha(255);
+            xImage.setImageAlpha(50);
             playerOWins++;
             playerXLosses++;
             playerOPoints++;
@@ -357,6 +361,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             oTurnTxt.setText(drawMsg);
             xTurnTxt.setText(drawMsg);
+            oImage.setImageAlpha(255);
+            xImage.setImageAlpha(255);
             playerODraw++;
             playerXDraw++;
             playerOPoints++;
@@ -384,7 +390,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         oTurnTxt.setText("");
         xTurnTxt.setText("");
-        oImage.setImageAlpha(50);
+        oImage.setImageAlpha(255);
         xImage.setImageAlpha(255);
 
         oPoints.setText(Integer.toString(playerOPoints));
