@@ -89,8 +89,8 @@ public class SelectPlayerTabActivity extends AppCompatActivity implements View.O
     private void setupViewPager(ViewPager viewPager) {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new PlayerOFragment(), "Player O");
-        viewPagerAdapter.addFragment(new PlayerXFragment(), "Player X");
+        viewPagerAdapter.addFragment(new PlayerOFragment(), "Player 1");
+        viewPagerAdapter.addFragment(new PlayerXFragment(), "Player 2");
         viewPager.setAdapter(viewPagerAdapter);
 
     }

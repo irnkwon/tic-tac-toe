@@ -81,7 +81,7 @@ public class PlayerDB {
 
         openWritableDB();
         ContentValues cv = new ContentValues();
-        cv.put("name", name);
+        cv.put("name", name.toUpperCase());
 
         long nResult = db.insert("players", null, cv);
 

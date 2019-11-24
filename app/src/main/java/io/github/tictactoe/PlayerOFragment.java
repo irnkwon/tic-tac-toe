@@ -11,18 +11,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.color.MaterialColors;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,6 +30,7 @@ public class PlayerOFragment extends Fragment {
     private ListView listview;
     private TextView noPlayers;
     private int playerXId = PlayerXFragment.playerXId;
+    private int pink = Color.parseColor("#E75480");
 
     public PlayerOFragment() { }
 
@@ -58,13 +53,7 @@ public class PlayerOFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 String itemDetails = listview.getItemAtPosition(pos).toString();
-                Toast.makeText(getActivity(),
-                        itemDetails, Toast.LENGTH_SHORT).show();
                 v.setSelected(true);
-                if (v.isSelected()) {
-                    int pink = Color.parseColor("#E75480");
-                    v.setBackgroundColor(pink);
-                }
 
                 Map<String, Object> map = (Map<String, Object>) listview.getItemAtPosition(pos);
                 int pid = Integer.valueOf((String) map.get("id"));

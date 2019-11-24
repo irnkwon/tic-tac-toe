@@ -4,7 +4,7 @@
     - vertical orientation
 
     Created by Irene Kwon
-    Last Modified at Nov 23, 2019
+    Last Modified at Nov 24, 2019
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,42 +25,51 @@
     <LinearLayout style="@style/OXContainer">
         <LinearLayout
             style="@style/OContainer">
-            <TextView
-                android:id="@+id/oWinPoint"
-                style="@style/PlayerText"
-                android:text="0"
-            >
-            </TextView>
+
             <TextView
                 android:id="@+id/oTurnTxt"
-                style="@style/PlayerText"
-            >
+                style="@style/PlayerText">
             </TextView>
             <ImageView
                 android:id="@+id/oImage"
                 style="@style/OXImage"
                 app:srcCompat="@drawable/o"
             />
+            <TextView
+                android:id="@+id/oPlayerName"
+                style="@style/PlayerText"
+                android:paddingTop="10dp">
+            </TextView>
+            <TextView
+                android:id="@+id/oWinPoint"
+                style="@style/PlayerText"
+                android:text="0">
+            </TextView>
+
         </LinearLayout>
 
         <LinearLayout
             style="@style/OContainer.X">
-            <TextView
-                android:id="@+id/xWinPoint"
-                style="@style/PlayerText"
-                android:text="0"
-            >
-            </TextView>
+
             <TextView
                 android:id="@+id/xTurnTxt"
-                style="@style/PlayerText"
-            >
+                style="@style/PlayerText">
             </TextView>
             <ImageView
                 android:id="@+id/xImage"
                 style="@style/OXImage"
                 app:srcCompat="@drawable/x"
             />
+            <TextView
+                android:id="@+id/xPlayerName"
+                style="@style/PlayerText">
+            </TextView>
+            <TextView
+                android:id="@+id/xWinPoint"
+                style="@style/PlayerText"
+                android:text="0">
+            </TextView>
+
         </LinearLayout>
     </LinearLayout>
 

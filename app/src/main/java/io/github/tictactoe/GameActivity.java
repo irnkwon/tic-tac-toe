@@ -16,6 +16,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -45,15 +46,21 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private int PlayerOId = PlayerOFragment.playerOId;
     private int PlayerXId = PlayerXFragment.playerXId;
-    private String playerOName = PlayerOFragment.playerOName;
-    private String playerXName = PlayerXFragment.playerXName;
-    private String oTurnMsg = playerOName + "'s turn";
-    private String xTurnMsg = playerXName + "'s turn";
+    private String playerOName;
+    private String playerXName;
+    private String turnMsg;
 
-    private TextView oTurnTxt;
-    private TextView xTurnTxt;
     private TextView oPoints;
     private TextView xPoints;
+    private TextView oPlayerName;
+    private TextView xPlayerName;
+    private TextView oTurnTxt;
+    private TextView xTurnTxt;
+
+    private ImageView oImage;
+    private ImageView xImage;
+
+    private boolean normalPlay = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +68,24 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
 
-        oTurnTxt = findViewById(R.id.oTurnTxt);
-        xTurnTxt = findViewById(R.id.xTurnTxt);
         oPoints = findViewById(R.id.oWinPoint);
         xPoints = findViewById(R.id.xWinPoint);
+        oPlayerName = findViewById(R.id.oPlayerName);
+        xPlayerName = findViewById(R.id.xPlayerName);
+        oTurnTxt = findViewById(R.id.oTurnTxt);
+        xTurnTxt = findViewById(R.id.xTurnTxt);
+        oImage = findViewById(R.id.oImage);
+        xImage = findViewById(R.id.xImage);
+
+        playerOName = PlayerOFragment.playerOName;
+        playerXName = PlayerXFragment.playerXName;
+        turnMsg = "your turn";
 
         newGameButton = findViewById(R.id.new_game);
         goBackButton = findViewById(R.id.go_back);
+
+        oPlayerName.setText(playerOName);
+        xPlayerName.setText(playerXName);
 
         db = new PlayerDB(this);
 
@@ -89,11 +107,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (playerOName.isEmpty() || playerXName.isEmpty()) {
+            oPlayerName.setText("PLAYER 1");
+            xPlayerName.setText("PLAYER 2");
+
             new MaterialAlertDialogBuilder(this)
                     .setTitle("Would you like to select players?")
                     .setMessage("You can save your game scores and see them " +
                             "in the scoreboard. To do that, please select both player 1 and 2.")
-                    .setPositiveButton("Select Players", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Intent intent = new Intent(getBaseContext(),
@@ -101,7 +122,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                             startActivity(intent);
                         }
                     })
-                    .setNegativeButton("Skip", null)
+                    .setNegativeButton("No, Thanks", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    })
                     .show();
         }
 
@@ -133,8 +158,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         ed.putString("button21", button21);
         ed.putString("button22", button22);
 
-        ed.putString("oTurnTxt", oTurnTxt.getText().toString());
-        ed.putString("xTurnTxt", xTurnTxt.getText().toString());
+//        ed.putString("oTurnTxt", oTurnTxt.getText().toString());
+//        ed.putString("xTurnTxt", xTurnTxt.getText().toString());
 
         ed.commit();
         super.onPause();
@@ -166,8 +191,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        oTurnTxt.setText(mPrefs.getString("oTurnTxt", ""));
-        xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
+//        oTurnTxt.setText(mPrefs.getString("oTurnTxt", ""));
+//        xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
     }
 
     @Override
@@ -183,66 +208,66 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         if (allBtnTxt == "" && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText(oTurnMsg);
-            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
+            oImage.setImageAlpha(255);
+            xImage.setImageAlpha(50);
         }
         if (allBtnTxt.length() == 1 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText(xTurnMsg);
-            oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
+            oImage.setImageAlpha(50);
+            xImage.setImageAlpha(255);
         }
         if (allBtnTxt.length() == 2 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText(oTurnMsg);
-            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
+            oImage.setImageAlpha(255);
+            xImage.setImageAlpha(50);
         }
         if (allBtnTxt.length() == 3 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText(xTurnMsg);
-            oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
+            oImage.setImageAlpha(50);
+            xImage.setImageAlpha(255);
         }
         if (allBtnTxt.length() == 4 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText(oTurnMsg);
-            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
+            oImage.setImageAlpha(255);
+            xImage.setImageAlpha(50);
         }
         if (allBtnTxt.length() == 5 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText(xTurnMsg);
-            oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
+            oImage.setImageAlpha(50);
+            xImage.setImageAlpha(255);
         }
         if (allBtnTxt.length() == 6 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText(oTurnMsg);
-            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
+            oImage.setImageAlpha(255);
+            xImage.setImageAlpha(50);
         }
         if (allBtnTxt.length() == 7 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText(xTurnMsg);
-            oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
+            oImage.setImageAlpha(50);
+            xImage.setImageAlpha(255);
         }
         if (allBtnTxt.length() == 8 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText(oTurnMsg);
-            xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
+            oImage.setImageAlpha(255);
+            xImage.setImageAlpha(50);
         }
 
         if (clickedBtnTxt.equals("New Game")) {
@@ -287,7 +312,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             oTurnTxt.setText("");
-            xTurnTxt.setText(playerXName + winMsg);
+            xTurnTxt.setText(winMsg);
             playerXWins++;
             playerOLosses++;
             playerXPoints++;
@@ -305,13 +330,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             xTurnTxt.setText("");
-            oTurnTxt.setText(playerOName + winMsg);
+            oTurnTxt.setText(winMsg);
             playerOWins++;
             playerXLosses++;
             playerOPoints++;
             oPoints.setText(Integer.toString(playerOPoints));
             updatePlayerScores();
-            
+
         }
         else {
             checkDraw();
@@ -358,7 +383,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         oTurnTxt.setText("");
-        xTurnTxt.setText(xTurnMsg);
+        xTurnTxt.setText("");
+        oImage.setImageAlpha(50);
+        xImage.setImageAlpha(255);
 
         oPoints.setText(Integer.toString(playerOPoints));
         xPoints.setText(Integer.toString(playerXPoints));

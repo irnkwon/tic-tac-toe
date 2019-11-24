@@ -17,7 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +31,7 @@ public class PlayerXFragment extends Fragment {
     private ListView listview;
     private TextView noPlayers;
     private int playerOId = PlayerOFragment.playerOId;
+    private int pink = Color.parseColor("#E75480");
 
     public PlayerXFragment() { }
 
@@ -53,13 +54,21 @@ public class PlayerXFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 String itemDetails = listview.getItemAtPosition(pos).toString();
-                Toast.makeText(getActivity(),
-                        itemDetails, Toast.LENGTH_SHORT).show();
-                v.setSelected(true);
-                if (v.isSelected()) {
-                    int pink = Color.parseColor("#E75480");
-                    v.setBackgroundColor(pink);
+
+                if (!String.valueOf((Integer) playerOId).isEmpty()) {
+                    if (playerOId == playerXId) {
+
+                        new MaterialAlertDialogBuilder(getActivity())
+                                .setTitle("Please choose other players.")
+                                .setMessage("This player has already been selected as a player O.")
+                                .setNegativeButton("Ok", null)
+                                .show();
+
+                        v.setSelected(false);
+                    }
                 }
+
+                v.setSelected(true);
 
                 Map<String, Object> map = (Map<String, Object>) listview.getItemAtPosition(pos);
                 int pid = Integer.valueOf((String) map.get("id"));
