@@ -27,6 +27,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences mPrefs;
     private int playerOPoints;
     private int playerXPoints;
+    private String playerOName = SelectPlayerActivity.playerOName;
 
     private TextView oTurnTxt;
     private TextView xTurnTxt;

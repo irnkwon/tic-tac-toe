@@ -8,32 +8,32 @@
 
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    app:rippleColor="@color/pink">
+    android:layout_height="100dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:background="@drawable/selector">
 
         <TextView
             android:id="@+id/player_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp">
+            android:textSize="30dp"
+            android:layout_gravity="center">
         </TextView>
 
         <TextView
-            android:id="@+id/player_number"
+            android:id="@+id/player_stauts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="Player 1"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:text="Selected">
         </TextView>
 
     </LinearLayout>

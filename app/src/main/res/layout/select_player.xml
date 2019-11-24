@@ -27,42 +27,38 @@
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabIndicatorColor="@color/pink"
         app:tabIndicatorHeight="3dp"
-        app:tabSelectedTextColor="@color/pink">
+        app:tabSelectedTextColor="@color/pink"
+        app:tabMode="fixed"
+        app:tabGravity="fill" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Player 1"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Player 2"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    </com.google.android.material.tabs.TabLayout>
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice" />
 
     <TextView
-        android:id="@+id/no_player"
+        android:id="@+id/no_players"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
         android:gravity="center_vertical"
-        android:fontFamily="monospace"
         android:text="@string/no_player"
         android:textAlignment="center"
         android:textColor="@color/pink"
         android:textSize="16sp"
         android:visibility="gone">
     </TextView>
-
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>
 

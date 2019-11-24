@@ -14,27 +14,33 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
+import androidx.viewpager.widget.ViewPager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
+import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SelectPlayerActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public static String playerOName = "";
+    public static String playerXName = "";
 
     private Dialog dialog;
     private PlayerDB db;
     private ListView listview;
     private EditText etPlayerName;
     private Button goBackButton;
+    private TextView noPlayers;
+    private TextView playerStatus;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +49,14 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
 
         listview = findViewById(R.id.listview);
         goBackButton = findViewById(R.id.go_back);
+        noPlayers = findViewById(R.id.no_players);
+        playerStatus = findViewById(R.id.player_stauts);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+
         goBackButton.setOnClickListener(this);
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
 
         dialog = new Dialog(this);
         db = new PlayerDB(this);
@@ -52,12 +65,24 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
-                CardView clickedView = (CardView) v;
+                String itemDetails = listview.getItemAtPosition(pos).toString();
                 Toast.makeText(SelectPlayerActivity.this,
-                "Item with id ["+id+"] - Position ["+pos+"] - " +
-                    "["+clickedView.getId()+"]", Toast.LENGTH_SHORT).show();
+                        itemDetails, Toast.LENGTH_SHORT).show();
+                v.setSelected(true);
+
+                Map<String, Object> map = (Map<String, Object>) listview.getItemAtPosition(pos);
+                String name = (String) map.get("name");
+                playerOName = name;
             }
         });
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPagerAdapter.addFragment(new PlayerOFragment(), "Player O");
+        viewPagerAdapter.addFragment(new PlayerXFragment(), "Player X");
+        viewPager.setAdapter(viewPagerAdapter);
 
     }
 
@@ -121,6 +146,10 @@ public class SelectPlayerActivity extends AppCompatActivity implements View.OnCl
 
     private void updateScreen() {
         ArrayList<HashMap<String, String>> data = db.getPlayers();
+
+        if (data.equals(null)) {
+            noPlayers.setVisibility(View.VISIBLE);
+        }
 
         int res = R.layout.player_list;
         String[] from = {"name"};
