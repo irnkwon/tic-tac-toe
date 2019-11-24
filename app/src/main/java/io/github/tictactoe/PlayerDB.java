@@ -12,6 +12,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.Cursor;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -82,6 +84,27 @@ public class PlayerDB {
         cv.put("name", name);
 
         long nResult = db.insert("players", null, cv);
+
+        if (nResult == -1) {
+            throw new Exception("No Data");
+        }
+
+        closeDB();
+
+    }
+
+    public void updateScores(String pid, int pwins, int plosses, int pties)
+            throws Exception {
+
+        openWritableDB();
+        ContentValues cv = new ContentValues();
+        cv.put("wins", pwins);
+        cv.put("losses", plosses);
+        cv.put("ties", pties);
+
+        String selection = "id=" + pid;
+
+        long nResult = db.update("players", cv, selection, null);
 
         if (nResult == -1) {
             throw new Exception("No Data");
