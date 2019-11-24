@@ -15,7 +15,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_gravity="center"
         android:background="@drawable/selector">
 
@@ -28,5 +28,12 @@
         </TextView>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/delete_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Delete" />
 
 </com.google.android.material.card.MaterialCardView>

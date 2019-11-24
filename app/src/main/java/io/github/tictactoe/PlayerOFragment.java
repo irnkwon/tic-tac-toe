@@ -13,9 +13,11 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,11 +52,14 @@ public class PlayerOFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 String itemDetails = listview.getItemAtPosition(pos).toString();
+                Toast.makeText(getActivity(),
+                        itemDetails, Toast.LENGTH_SHORT).show();
+                v.setSelected(true);
 
                 Map<String, Object> map = (Map<String, Object>) listview.getItemAtPosition(pos);
-                int pId = (Integer) map.get("id");
+                int pid = Integer.valueOf((String) map.get("id"));
                 String pname = (String) map.get("name");
-                playerOId = pId;
+                playerOId = pid;
                 playerOName = pname;
             }
         });

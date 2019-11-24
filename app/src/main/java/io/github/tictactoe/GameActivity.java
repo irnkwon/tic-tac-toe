@@ -23,6 +23,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     private SharedPreferences mPrefs;
+    private PlayerDB db;
 
     private String winMsg = " wins!";
     private String drawMsg = "draw!";
@@ -34,6 +35,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private int playerOPoints;
     private int playerXPoints;
 
+    private int playerOWins;
+    private int playerODraw;
+    private int playerOLosses;
+
+    private int playerXWins;
+    private int playerXDraw;
+    private int playerXLosses;
+
+    private int PlayerOId = PlayerOFragment.playerOId;
+    private int PlayerXId = PlayerXFragment.playerXId;
     private String playerOName = PlayerOFragment.playerOName;
     private String playerXName = PlayerXFragment.playerXName;
     private String oTurnMsg = playerOName + "'s turn";
@@ -57,6 +68,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         newGameButton = findViewById(R.id.new_game);
         goBackButton = findViewById(R.id.go_back);
+
+        db = new PlayerDB(this);
 
         Resources res = getResources();
         for (int j = 0; j < 3; j++) {
@@ -275,8 +288,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             oTurnTxt.setText("");
             xTurnTxt.setText(playerXName + winMsg);
+            playerXWins++;
+            playerOLosses++;
             playerXPoints++;
             xPoints.setText(Integer.toString(playerXPoints));
+            updatePlayerScores();
+
         }
         else if (firstRow.equals("ooo") || secondRow.equals("ooo") || lastRow.equals("ooo") ||
                 firstColumn.equals("ooo") || secondColumn.equals("ooo") || lastColumn.equals("ooo")
@@ -289,8 +306,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             xTurnTxt.setText("");
             oTurnTxt.setText(playerOName + winMsg);
+            playerOWins++;
+            playerXLosses++;
             playerOPoints++;
             oPoints.setText(Integer.toString(playerOPoints));
+            updatePlayerScores();
+            
         }
         else {
             checkDraw();
@@ -311,10 +332,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             oTurnTxt.setText(drawMsg);
             xTurnTxt.setText(drawMsg);
+            playerODraw++;
+            playerXDraw++;
             playerOPoints++;
             playerXPoints++;
             oPoints.setText(Integer.toString(playerOPoints));
             xPoints.setText(Integer.toString(playerXPoints));
+            updatePlayerScores();
         }
     }
 
@@ -338,7 +362,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         oPoints.setText(Integer.toString(playerOPoints));
         xPoints.setText(Integer.toString(playerXPoints));
+    }
 
+    private void updatePlayerScores() {
+
+        try {
+            db.updateScores(PlayerOId, playerOWins, playerOLosses, playerODraw);
+            db.updateScores(PlayerXId, playerXWins, playerXLosses, playerXDraw);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

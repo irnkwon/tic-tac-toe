@@ -17,5 +17,4 @@ public class AddPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_player);
     }
-
 }

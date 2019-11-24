@@ -93,7 +93,7 @@ public class PlayerDB {
 
     }
 
-    public void updateScores(String pid, int pwins, int plosses, int pties)
+    public void updateScores(int pid, int pwins, int plosses, int pties)
             throws Exception {
 
         openWritableDB();
@@ -119,14 +119,15 @@ public class PlayerDB {
         openReadableDB();
         ArrayList<HashMap<String, String>> data = new ArrayList<>();
 
-        Cursor cursor = db.rawQuery("SELECT name, wins, losses, ties FROM players " +
+        Cursor cursor = db.rawQuery("SELECT id, name, wins, losses, ties FROM players " +
             "ORDER BY wins DESC", null );
         while (cursor.moveToNext()) {
             HashMap<String, String> map = new HashMap<>();
-            map.put("name", cursor.getString(0));
-            map.put("wins", cursor.getString(1));
-            map.put("losses", cursor.getString(2));
-            map.put("ties", cursor.getString(3));
+            map.put("id", cursor.getString(0));
+            map.put("name", cursor.getString(1));
+            map.put("wins", cursor.getString(2));
+            map.put("losses", cursor.getString(3));
+            map.put("ties", cursor.getString(4));
             data.add(map);
         }
         if (cursor != null) {
