@@ -13,7 +13,6 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -30,6 +29,7 @@ public class PlayerOFragment extends Fragment {
     private PlayerDB db;
     private ListView listview;
     private TextView noPlayers;
+    private int playerXId = PlayerXFragment.playerXId;
 
     public PlayerOFragment() { }
 

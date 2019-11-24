@@ -2,7 +2,7 @@
     ScoreboardActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 23, 2019
+    Last Modified at Nov 24, 2019
 */
 
 package io.github.tictactoe;

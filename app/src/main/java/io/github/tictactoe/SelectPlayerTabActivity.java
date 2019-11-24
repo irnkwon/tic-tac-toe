@@ -29,6 +29,9 @@ public class SelectPlayerTabActivity extends AppCompatActivity implements View.O
     private Button goBackButton;
     private Button addPlayerButton;
 
+    private String playerOName = PlayerOFragment.playerOName;
+    private String playerXName = PlayerXFragment.playerXName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
