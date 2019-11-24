@@ -7,6 +7,7 @@
 
 package io.github.tictactoe;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +53,13 @@ public class PlayerXFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 String itemDetails = listview.getItemAtPosition(pos).toString();
+                Toast.makeText(getActivity(),
+                        itemDetails, Toast.LENGTH_SHORT).show();
                 v.setSelected(true);
+                if (v.isSelected()) {
+                    int pink = Color.parseColor("#E75480");
+                    v.setBackgroundColor(pink);
+                }
 
                 Map<String, Object> map = (Map<String, Object>) listview.getItemAtPosition(pos);
                 int pid = Integer.valueOf((String) map.get("id"));
