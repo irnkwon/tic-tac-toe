@@ -2,12 +2,14 @@
     GameActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 23, 2019
+    Last Modified at Nov 24, 2019
 */
 
 package io.github.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -16,18 +18,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private String winMsg = "winner!";
+    private SharedPreferences mPrefs;
+
+    private String winMsg = " wins!";
     private String drawMsg = "draw!";
 
     private Button aButtons[][] = new Button[3][3];
     private Button newGameButton;
     private Button goBackButton;
-    private SharedPreferences mPrefs;
+
     private int playerOPoints;
     private int playerXPoints;
-    private String playerOName = SelectPlayerActivity.playerOName;
+
+    private String playerOName = PlayerOFragment.playerOName;
+    private String playerXName = PlayerXFragment.playerXName;
+    private String oTurnMsg = playerOName + "'s turn";
+    private String xTurnMsg = playerXName + "'s turn";
 
     private TextView oTurnTxt;
     private TextView xTurnTxt;
@@ -63,6 +73,23 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 newGameButton.setOnClickListener(this);
                 goBackButton.setOnClickListener(this);
             }
+        }
+
+        if (playerOName.isEmpty() || playerXName.isEmpty()) {
+            new MaterialAlertDialogBuilder(this)
+                    .setTitle("Would you like to select players?")
+                    .setMessage("You can save your game scores and see them " +
+                            "in the scoreboard. To do that, please select both player 1 and 2.")
+                    .setPositiveButton("Select Players", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(getBaseContext(),
+                                    SelectPlayerTabActivity.class);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("Skip", null)
+                    .show();
         }
 
         mPrefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
@@ -143,63 +170,63 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         if (allBtnTxt == "" && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("o's turn");
+            oTurnTxt.setText(oTurnMsg);
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 1 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("x's turn");
+            xTurnTxt.setText(xTurnMsg);
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 2 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("o's turn");
+            oTurnTxt.setText(oTurnMsg);
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 3 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("x's turn");
+            xTurnTxt.setText(xTurnMsg);
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 4 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("o's turn");
+            oTurnTxt.setText(oTurnMsg);
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 5 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("x's turn");
+            xTurnTxt.setText(xTurnMsg);
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 6 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("o's turn");
+            oTurnTxt.setText(oTurnMsg);
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
         }
         if (allBtnTxt.length() == 7 && clickedBtnTxt == "") {
             clickedBtn.setText("o");
-            xTurnTxt.setText("x's turn");
+            xTurnTxt.setText(xTurnMsg);
             oTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.o);
         }
         if (allBtnTxt.length() == 8 && clickedBtnTxt == "") {
             clickedBtn.setText("x");
-            oTurnTxt.setText("o's turn");
+            oTurnTxt.setText(oTurnMsg);
             xTurnTxt.setText("");
             clickedBtn.setTextScaleX(0);
             clickedBtn.setBackgroundResource(R.drawable.x);
@@ -247,7 +274,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             oTurnTxt.setText("");
-            xTurnTxt.setText(winMsg);
+            xTurnTxt.setText(playerXName + winMsg);
             playerXPoints++;
             xPoints.setText(Integer.toString(playerXPoints));
         }
@@ -261,7 +288,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             xTurnTxt.setText("");
-            oTurnTxt.setText(winMsg);
+            oTurnTxt.setText(playerOName + winMsg);
             playerOPoints++;
             oPoints.setText(Integer.toString(playerOPoints));
         }
@@ -307,7 +334,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         oTurnTxt.setText("");
-        xTurnTxt.setText("x's turn");
+        xTurnTxt.setText(xTurnMsg);
 
         oPoints.setText(Integer.toString(playerOPoints));
         xPoints.setText(Integer.toString(playerXPoints));

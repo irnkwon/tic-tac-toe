@@ -114,7 +114,7 @@
         <LinearLayout style="@style/OContainer.X.H">
             <TextView
                 android:id="@+id/xTurnTxt"
-                style="@style/PlayerText.X">
+                style="@style/PlayerText">
             </TextView>
             <ImageView
                 android:id="@+id/xImage"

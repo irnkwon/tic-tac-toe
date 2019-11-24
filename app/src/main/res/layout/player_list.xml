@@ -3,7 +3,7 @@
     player_list.xml  - vertical orientation
 
     Created by Irene Kwon
-    Last Modified at Nov 23, 2019
+    Last Modified at Nov 24, 2019
 -->
 
 <com.google.android.material.card.MaterialCardView
@@ -25,15 +25,6 @@
             android:layout_height="wrap_content"
             android:textSize="30dp"
             android:layout_gravity="center">
-        </TextView>
-
-        <TextView
-            android:id="@+id/player_stauts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:text="Selected">
         </TextView>
 
     </LinearLayout>

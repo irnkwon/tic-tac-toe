@@ -2,7 +2,7 @@
     LandingActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 22, 2019
+    Last Modified at Nov 24, 2019
 */
 
 package io.github.tictactoe;
@@ -26,7 +26,7 @@ public class LandingActivity extends AppCompatActivity {
     }
 
     public void onBtnSelectPlayerClick(View v) {
-        Intent i = new Intent(getBaseContext(), SelectPlayerActivity.class);
+        Intent i = new Intent(getBaseContext(), SelectPlayerTabActivity.class);
         startActivity(i);
     }
 

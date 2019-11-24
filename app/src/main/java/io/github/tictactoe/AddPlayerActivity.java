@@ -2,14 +2,15 @@
     AddPlayerActivity.java
 
     Created by Irene Kwon
-    Last Modified at Nov 23, 2019
+    Last Modified at Nov 24, 2019
 */
 
 package io.github.tictactoe;
 
 import android.os.Bundle;
+import android.widget.EditText;
+
 import androidx.appcompat.app.AppCompatActivity;
-import io.github.tictactoe.R;
 
 public class AddPlayerActivity extends AppCompatActivity {
 

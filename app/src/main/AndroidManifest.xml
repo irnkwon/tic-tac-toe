@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".GameActivity" />
-        <activity android:name=".SelectPlayerActivity" />
         <activity android:name=".AddPlayerActivity" />
         <activity android:name=".ScoreboardActivity" />
+        <activity android:name=".SelectPlayerTabActivity" />
         <activity android:name=".LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

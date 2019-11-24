@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    select_player_tab.xml
+    - vertical orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 24, 2019
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PlayerTheme"
+    android:id="@+id/playerSelectContainer">
+
+    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+        <!-- Go back button -->
+        <Button
+            android:id="@+id/go_back"
+            style="@style/Buttons.NewGame.GoBack" />
+
+        <!-- New game button -->
+        <Button
+            android:id="@+id/add_player"
+            style="@style/Buttons.NewGame"
+            android:text="@string/add_player" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/pink"
+        app:tabIndicatorHeight="3dp"
+        app:tabSelectedTextColor="@color/pink"
+        app:tabMode="fixed"
+        app:tabGravity="fill" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
+

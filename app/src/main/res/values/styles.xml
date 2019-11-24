@@ -3,7 +3,7 @@
     - saves all the styles used for the app
 
     Created by Irene Kwon
-    Last Modified at Nov 20, 2019
+    Last Modified at Nov 24, 2019
 -->
 
 <resources>
@@ -92,10 +92,6 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center</item>
-    </style>
-
-    <style name="PlayerText.X">
-        <item name="android:text">@string/turn</item>
     </style>
 
     <style name="RowContainer">

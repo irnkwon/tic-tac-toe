@@ -4,48 +4,26 @@
     - vertical orientation
 
     Created by Irene Kwon
-    Last Modified at Nov 23, 2019
+    Last Modified at Nov 24, 2019
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PopupTheme"
-    android:id="@+id/playerAddContainer"
-    android:background="@color/pink">
+    android:id="@+id/playerAddContainer">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please type the player name"
-        android:textSize="16sp">
-    </TextView>
-    <EditText
-        android:id="@+id/etPlayerName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="8"
-        android:textSize="16sp"
-        android:gravity="center">
-    </EditText>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:outlineAmbientShadowColor="@color/pink">
 
-    <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="15dp">
-        <Button
-            android:id="@+id/btnAddPlayer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_player"
-            style="@style/Buttons"/>
-        <Button
-            android:id="@+id/btnCloseDialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel"
-            style="@style/Buttons"/>
-    </LinearLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/modal_player_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
 

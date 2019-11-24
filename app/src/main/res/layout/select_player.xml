@@ -12,35 +12,6 @@
     style="@style/PlayerTheme"
     android:id="@+id/playerSelectContainer">
 
-    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
-        <!-- Go back button -->
-        <Button
-            android:id="@+id/go_back"
-            style="@style/Buttons.NewGame.GoBack" />
-
-        <!-- New game button -->
-        <Button
-            android:id="@+id/add_player"
-            style="@style/Buttons.NewGame"
-            android:onClick="showPlayerAdd"
-            android:text="@string/add_player" />
-    </androidx.appcompat.widget.Toolbar>
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabIndicatorColor="@color/pink"
-        app:tabIndicatorHeight="3dp"
-        app:tabSelectedTextColor="@color/pink"
-        app:tabMode="fixed"
-        app:tabGravity="fill" />
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
