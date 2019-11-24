@@ -8,8 +8,6 @@
 package io.github.tictactoe;
 
 import android.os.Bundle;
-import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AddPlayerActivity extends AppCompatActivity {

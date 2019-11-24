@@ -7,42 +7,40 @@
 
 package io.github.tictactoe;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
+import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class SelectPlayerTabActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private PlayerDB db;
+    private MaterialAlertDialogBuilder mb;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private Button goBackButton;
-
-    private Dialog dialog;
     private Button addPlayerButton;
-    private PlayerDB db;
-    private EditText playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_player_tab);
 
+        db = new PlayerDB(this);
+        mb = new MaterialAlertDialogBuilder(this);
+
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
         goBackButton = findViewById(R.id.go_back);
         addPlayerButton = findViewById(R.id.add_player);
-        playerName = findViewById(R.id.modal_player_name);
 
         goBackButton.setOnClickListener(this);
         addPlayerButton.setOnClickListener(this);
@@ -64,28 +62,23 @@ public class SelectPlayerTabActivity extends AppCompatActivity implements View.O
         }
 
         if (clickedBtn.equals(addPlayerButton)) {
-            new MaterialAlertDialogBuilder(this)
-                    .setTitle("Type the name of the player")
-                    .setView(R.layout.add_player)
-                    .setPositiveButton("Add Player", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            String name = playerName.getText().toString().trim();
 
-                            if (name.isEmpty()) {
-                            } else {
-                                try {
-                                    db.addPlayer(name);
-                                    playerName.setText("");
+            final TextInputEditText playerName = new TextInputEditText(SelectPlayerTabActivity.this);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.MATCH_PARENT);
+            playerName.setLayoutParams(lp);
 
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    })
-                    .setNegativeButton("Close", null)
-                    .show();
+            mb
+            .setView(playerName)
+            .setTitle("Type the name of the player")
+            .setPositiveButton("Add Player", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    addPlayer(playerName.getText().toString().trim());
+                }
+            })
+            .setNegativeButton("Close", null)
+            .show();
         }
 
     }
@@ -99,5 +92,18 @@ public class SelectPlayerTabActivity extends AppCompatActivity implements View.O
 
     }
 
+    private void addPlayer(String playerName) {
+
+        String name = playerName;
+
+        if (!name.isEmpty()) {
+            try {
+                db.insertPlayer(name);
+                setupViewPager(viewPager);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 

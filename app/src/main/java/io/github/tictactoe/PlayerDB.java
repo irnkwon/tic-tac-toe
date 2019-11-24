@@ -75,7 +75,7 @@ public class PlayerDB {
 
     // User Defined Methods
 
-    public void addPlayer(String name) throws Exception {
+    public void insertPlayer(String name) throws Exception {
 
         openWritableDB();
         ContentValues cv = new ContentValues();

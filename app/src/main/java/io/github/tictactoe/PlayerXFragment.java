@@ -7,7 +7,6 @@
 
 package io.github.tictactoe;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,10 +26,8 @@ public class PlayerXFragment extends Fragment {
 
     public static String playerXName = "";
 
-    private Dialog dialog;
     private PlayerDB db;
     private ListView listview;
-    private Button goBackButton;
     private TextView noPlayers;
 
     public PlayerXFragment() { }
@@ -47,10 +44,8 @@ public class PlayerXFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         listview = view.findViewById(R.id.listview);
-        goBackButton = view.findViewById(R.id.go_back);
         noPlayers = view.findViewById(R.id.no_players);
 
-        dialog = new Dialog(getActivity());
         db = new PlayerDB(getActivity());
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
