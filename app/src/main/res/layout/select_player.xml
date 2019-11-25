@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    select_player.xml
+    - vertical orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 23, 2019
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PlayerTheme"
+    android:id="@+id/playerSelectContainer">
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice" />
+
+    <TextView
+        android:id="@+id/no_players"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:text="@string/no_player"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textSize="16sp"
+        android:visibility="gone">
+    </TextView>
+
+</LinearLayout>
+

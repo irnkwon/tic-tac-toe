@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    game.xml
+    - vertical orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 24, 2019
+-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PlayerTheme">
 
-    <androidx.appcompat.widget.Toolbar
-        style="@style/Toolbar">
-        <!-- New game button -->
-        <Button
-            android:id="@+id/go_back"
+    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+        <!-- Go back button -->
+        <Button android:id="@+id/go_back"
             style="@style/Buttons.NewGame.GoBack" />
 
         <!-- New game button -->
@@ -14,38 +21,59 @@
             style="@style/Buttons.NewGame" />
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- OX Images and turns -->
-
+    <!-- OX images and turns -->
     <LinearLayout style="@style/OXContainer">
-
         <LinearLayout
             style="@style/OContainer">
+
             <TextView
                 android:id="@+id/oTurnTxt"
                 style="@style/PlayerText"
-            >
+                android:paddingBottom="5dp">
             </TextView>
             <ImageView
                 android:id="@+id/oImage"
                 style="@style/OXImage"
-                android:src="@drawable/o"
+                app:srcCompat="@drawable/o"
             />
+            <TextView
+                android:id="@+id/oPlayerName"
+                style="@style/PlayerText"
+                android:paddingTop="10dp">
+            </TextView>
+            <TextView
+                android:id="@+id/oWinPoint"
+                style="@style/PlayerText"
+                android:text="0">
+            </TextView>
+
         </LinearLayout>
 
         <LinearLayout
             style="@style/OContainer.X">
+
             <TextView
                 android:id="@+id/xTurnTxt"
-                style="@style/PlayerText.X"
-            >
+                style="@style/PlayerText"
+                android:paddingBottom="5dp">
             </TextView>
             <ImageView
                 android:id="@+id/xImage"
                 style="@style/OXImage"
-                android:src="@drawable/x"
+                app:srcCompat="@drawable/x"
             />
-        </LinearLayout>
+            <TextView
+                android:id="@+id/xPlayerName"
+                style="@style/PlayerText"
+                android:paddingTop="10dp">
+            </TextView>
+            <TextView
+                android:id="@+id/xWinPoint"
+                style="@style/PlayerText"
+                android:text="0">
+            </TextView>
 
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Buttons for Tic Tac Toe -->
@@ -55,19 +83,19 @@
 
             <Button
                 android:id="@+id/button00"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
 
         <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button01"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
 
         <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button02"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
     </LinearLayout>
 
@@ -76,19 +104,19 @@
         <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button10"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
 
         <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button11"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
 
         <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button12"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
     </LinearLayout>
 
@@ -97,19 +125,19 @@
         <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button20"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
 
         <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button21"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
 
         <LinearLayout style="@style/PlayerButtonContainer">
             <Button
                 android:id="@+id/button22"
-                style="@style/PlayerButton" />
+                style="@style/Buttons.PlayerButton" />
         </LinearLayout>
     </LinearLayout>
 

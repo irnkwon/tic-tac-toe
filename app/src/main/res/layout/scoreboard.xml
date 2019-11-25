@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    scoreboard.xml
+    - vertical orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 23, 2019
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PlayerTheme"
+    android:id="@+id/playerSelectContainer">
+
+    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+        <!-- Go back button -->
+        <Button android:id="@+id/go_back"
+            style="@style/Buttons.NewGame.GoBack" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorHeight="0dp"
+        android:clickable="false"
+        android:focusable="false"
+        app:tabRippleColor="@color/white"
+        app:tabTextColor="@color/pink">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Player"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wins"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Losses"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ties"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <ListView
+        android:id="@+id/score_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/no_player"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:fontFamily="monospace"
+        android:text="@string/no_player"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textSize="16sp"
+        android:visibility="gone">
+    </TextView>
+
+</LinearLayout>
+

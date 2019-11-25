@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    add_player.xml
+    - vertical orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 24, 2019
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PopupTheme"
+    android:id="@+id/playerAddContainer">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_name_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/modal_player_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
+

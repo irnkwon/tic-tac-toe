@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    landing.xml
+    - vertical orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+-->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/AppTheme"
     tools:context=".LandingActivity">
 
     <!-- Logo -->
-    <ImageView style="@style/Logo"/>
+    <ImageView style="@style/Logo" />
 
     <!-- Buttons -->
     <Button
-        android:id="@+id/btnOnePlayer"
+        android:id="@+id/btnStartGame"
         style="@style/Buttons"
-        android:onClick="onBtnOnePlayerClick"
-        android:text="@string/one_player" />
+        android:onClick="onBtnStartGameClick"
+        android:text="@string/start_game" />
 
     <Button
-        android:id="@+id/btnTwoPlayers"
+        android:id="@+id/btnSelectPlayer"
         style="@style/Buttons.Second"
-        android:layout_below="@id/btnOnePlayer"
-        android:onClick="onBtnTwoPlayerClick"
-        android:text="@string/two_players" />
+        android:layout_below="@id/btnStartGame"
+        android:onClick="onBtnSelectPlayerClick"
+        android:text="@string/select_player" />
+
+    <Button
+        android:id="@+id/btnScoreboard"
+        style="@style/Buttons.Second"
+        android:layout_below="@id/btnSelectPlayer"
+        android:onClick="onBtnScoreboardClick"
+        android:text="@string/scoreboard" />
 
 </RelativeLayout>

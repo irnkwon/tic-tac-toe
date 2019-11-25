@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    select_player.xml
+    - horizontal orientation
+
+    Created by Irene Kwon
+    Last Modified at Nov 14, 2019
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PlayerTheme.H">
+
+    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+        <!-- Go back button -->
+        <Button android:id="@+id/go_back"
+            style="@style/Buttons.NewGame.GoBack" />
+
+        <!-- New game button -->
+        <Button android:id="@+id/add_player"
+            style="@style/Buttons.NewGame"
+            android:text="@string/add_player" />
+    </androidx.appcompat.widget.Toolbar>
+
+</LinearLayout>

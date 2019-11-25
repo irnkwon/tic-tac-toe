@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    selector.xml
+
+    Created by Irene Kwon
+    Last Modified at Nov 24, 2019
+-->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_selected="true"
+        android:drawable="@drawable/pink"></item>
+    <item android:drawable="@color/white" />
+</selector>
