@@ -114,6 +114,21 @@ public class PlayerDB {
 
     }
 
+    public void removePlayer(int pid) throws Exception {
+
+        openWritableDB();
+        String selection = "id=" + pid;
+
+        long nResult = db.delete("players", selection, null);
+
+        if (nResult == -1) {
+            throw new Exception("No Data");
+        }
+
+        closeDB();
+
+    }
+
     public ArrayList<HashMap<String, String>> getPlayers() {
 
         openReadableDB();

@@ -7,11 +7,15 @@
 
 package io.github.tictactoe;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -59,7 +63,7 @@ public class PlayerXFragment extends Fragment {
                 v.setSelected(true);
 
                 Map<String, Object> map = (Map<String, Object>) listview.getItemAtPosition(pos);
-                int pid = Integer.valueOf((String) map.get("id"));
+                final int pid = Integer.valueOf((String) map.get("id"));
                 String pname = (String) map.get("name");
                 playerXId = pid;
                 playerXName = pname;
@@ -67,11 +71,36 @@ public class PlayerXFragment extends Fragment {
                 new MaterialAlertDialogBuilder(getActivity())
                         .setMessage(pname + " has been selected as player 2.")
                         .setPositiveButton("Ok", null)
+                        .setNegativeButton("Delete Player",
+                                new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                deletePlayer(pid);
+
+                                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                if (Build.VERSION.SDK_INT >= 26) {
+                                    ft.setReorderingAllowed(false);
+                                }
+                                ft.detach(PlayerXFragment.this).attach(PlayerXFragment.this).commit();
+                            }
+                        })
                         .show();
             }
         });
 
         updateScreen();
+    }
+
+    private void deletePlayer(int playerId) {
+        int id = playerId;
+
+        if (!String.valueOf((Integer) id).isEmpty()) {
+            try {
+                db.removePlayer(id);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void updateScreen() {
