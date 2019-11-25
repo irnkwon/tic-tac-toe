@@ -29,11 +29,11 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabGravity="fill"
         app:tabIndicatorColor="@color/pink"
         app:tabIndicatorHeight="3dp"
-        app:tabSelectedTextColor="@color/pink"
         app:tabMode="fixed"
-        app:tabGravity="fill" />
+        app:tabSelectedTextColor="@color/pink" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

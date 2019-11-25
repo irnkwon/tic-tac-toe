@@ -31,6 +31,8 @@ public class SelectPlayerTabActivity extends AppCompatActivity implements View.O
 
     private String playerOName = PlayerOFragment.playerOName;
     private String playerXName = PlayerXFragment.playerXName;
+    private String playerOTitle;
+    private String playerXTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,7 @@ public class SelectPlayerTabActivity extends AppCompatActivity implements View.O
             startActivity(myIntent);
         }
 
-        if (clickedBtn.equals(addPlayerButton)) {
+        if (clickedBtnTxt.equals("Add Player")) {
 
             final TextInputEditText playerName = new TextInputEditText(SelectPlayerTabActivity.this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
@@ -88,9 +90,23 @@ public class SelectPlayerTabActivity extends AppCompatActivity implements View.O
 
     private void setupViewPager(ViewPager viewPager) {
 
+        if (playerOName.isEmpty() && playerXName.isEmpty()) {
+            playerOTitle = "Player 1: Not Selected";
+            playerXTitle = "Player 2: Not Selected";
+        } else if (playerOName.isEmpty()) {
+            playerOTitle = "Player 1: Not Selected";
+            playerXTitle = "Player 2: " + playerXName;
+        } else if (playerXName.isEmpty()) {
+            playerOTitle = "Player 1: " + playerOName;
+            playerXTitle = "Player 2: Not Selected";
+        } else {
+            playerOTitle = "Player 1: " + playerOName;
+            playerXTitle = "Player 2: " + playerXName;
+        }
+
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new PlayerOFragment(), "Player 1");
-        viewPagerAdapter.addFragment(new PlayerXFragment(), "Player 2");
+        viewPagerAdapter.addFragment(new PlayerOFragment(), playerOTitle);
+        viewPagerAdapter.addFragment(new PlayerXFragment(), playerXTitle);
         viewPager.setAdapter(viewPagerAdapter);
 
     }

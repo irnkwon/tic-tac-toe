@@ -17,7 +17,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,20 +56,6 @@ public class PlayerXFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
                 String itemDetails = listview.getItemAtPosition(pos).toString();
-
-                if (!String.valueOf((Integer) playerOId).isEmpty()) {
-                    if (playerOId == playerXId) {
-
-                        new MaterialAlertDialogBuilder(getActivity())
-                                .setTitle("Please choose other players.")
-                                .setMessage("This player has already been selected as a player O.")
-                                .setNegativeButton("Ok", null)
-                                .show();
-
-                        v.setSelected(false);
-                    }
-                }
-
                 v.setSelected(true);
 
                 Map<String, Object> map = (Map<String, Object>) listview.getItemAtPosition(pos);
@@ -75,6 +63,11 @@ public class PlayerXFragment extends Fragment {
                 String pname = (String) map.get("name");
                 playerXId = pid;
                 playerXName = pname;
+
+                new MaterialAlertDialogBuilder(getActivity())
+                        .setMessage(pname + " has been selected as player 2.")
+                        .setPositiveButton("Ok", null)
+                        .show();
             }
         });
 

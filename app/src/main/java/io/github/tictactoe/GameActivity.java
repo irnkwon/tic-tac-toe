@@ -26,29 +26,25 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences mPrefs;
     private PlayerDB db;
 
-    private String winMsg = " wins!";
-    private String drawMsg = "draw!";
-
     private Button aButtons[][] = new Button[3][3];
     private Button newGameButton;
     private Button goBackButton;
 
     private int playerOPoints;
     private int playerXPoints;
-
     private int playerOWins;
     private int playerODraw;
     private int playerOLosses;
-
     private int playerXWins;
     private int playerXDraw;
     private int playerXLosses;
-
     private int PlayerOId = PlayerOFragment.playerOId;
     private int PlayerXId = PlayerXFragment.playerXId;
+
+    private String winMsg = " wins!";
+    private String drawMsg = "draw!";
     private String playerOName;
     private String playerXName;
-    private String turnMsg;
 
     private TextView oPoints;
     private TextView xPoints;
@@ -59,8 +55,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private ImageView oImage;
     private ImageView xImage;
-
-    private boolean normalPlay = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +73,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         playerOName = PlayerOFragment.playerOName;
         playerXName = PlayerXFragment.playerXName;
-        turnMsg = "your turn";
 
         newGameButton = findViewById(R.id.new_game);
         goBackButton = findViewById(R.id.go_back);
@@ -313,7 +306,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             oTurnTxt.setText("");
             xTurnTxt.setText(winMsg);
-            oImage.setImageAlpha(50);
+            oImage.setImageAlpha(255);
             xImage.setImageAlpha(255);
             playerXWins++;
             playerOLosses++;
@@ -334,7 +327,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             xTurnTxt.setText("");
             oTurnTxt.setText(winMsg);
             oImage.setImageAlpha(255);
-            xImage.setImageAlpha(50);
+            xImage.setImageAlpha(255);
             playerOWins++;
             playerXLosses++;
             playerOPoints++;

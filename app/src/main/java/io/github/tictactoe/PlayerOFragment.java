@@ -17,6 +17,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,6 +63,11 @@ public class PlayerOFragment extends Fragment {
                 String pname = (String) map.get("name");
                 playerOId = pid;
                 playerOName = pname;
+
+                new MaterialAlertDialogBuilder(getActivity())
+                        .setMessage(pname + " has been selected as player 1.")
+                        .setPositiveButton("Ok", null)
+                        .show();
             }
         });
 
