@@ -115,11 +115,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                             startActivity(intent);
                         }
                     })
-                    .setNegativeButton("No, Thanks", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                        }
-                    })
+                    .setNegativeButton("No, Thanks", null)
                     .show();
         }
 
@@ -151,8 +147,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         ed.putString("button21", button21);
         ed.putString("button22", button22);
 
-//        ed.putString("oTurnTxt", oTurnTxt.getText().toString());
-//        ed.putString("xTurnTxt", xTurnTxt.getText().toString());
+        ed.putString("oTurnTxt", oTurnTxt.getText().toString());
+        ed.putString("xTurnTxt", xTurnTxt.getText().toString());
 
         ed.commit();
         super.onPause();
@@ -184,8 +180,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-//        oTurnTxt.setText(mPrefs.getString("oTurnTxt", ""));
-//        xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
+        oTurnTxt.setText(mPrefs.getString("oTurnTxt", ""));
+        xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
     }
 
     @Override
