@@ -76,6 +76,7 @@ public class PlayerXFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 deletePlayer(pid);
+                                playerXName = "";
 
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                                 if (Build.VERSION.SDK_INT >= 26) {

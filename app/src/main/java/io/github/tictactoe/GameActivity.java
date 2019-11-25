@@ -122,67 +122,67 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         mPrefs = getSharedPreferences("my_prefs", MODE_PRIVATE);
     }
 
-    @Override
-    protected void onPause() {
-
-        String button00 = aButtons[0][0].getText().toString();
-        String button01 = aButtons[0][1].getText().toString();
-        String button02 = aButtons[0][2].getText().toString();
-        String button10 = aButtons[1][0].getText().toString();
-        String button11 = aButtons[1][1].getText().toString();
-        String button12 = aButtons[1][2].getText().toString();
-        String button20 = aButtons[2][0].getText().toString();
-        String button21 = aButtons[2][1].getText().toString();
-        String button22 = aButtons[2][2].getText().toString();
-
-        SharedPreferences.Editor ed = mPrefs.edit();
-
-        ed.putString("button00", button00);
-        ed.putString("button01", button01);
-        ed.putString("button02", button02);
-        ed.putString("button10", button10);
-        ed.putString("button11", button11);
-        ed.putString("button12", button12);
-        ed.putString("button20", button20);
-        ed.putString("button21", button21);
-        ed.putString("button22", button22);
-
-        ed.putString("oTurnTxt", oTurnTxt.getText().toString());
-        ed.putString("xTurnTxt", xTurnTxt.getText().toString());
-
-        ed.commit();
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        aButtons[0][0].setText(mPrefs.getString("button00", ""));
-        aButtons[0][1].setText(mPrefs.getString("button01", ""));
-        aButtons[0][2].setText(mPrefs.getString("button02", ""));
-        aButtons[1][0].setText(mPrefs.getString("button10", ""));
-        aButtons[1][1].setText(mPrefs.getString("button11", ""));
-        aButtons[1][2].setText(mPrefs.getString("button12", ""));
-        aButtons[2][0].setText(mPrefs.getString("button20", ""));
-        aButtons[2][1].setText(mPrefs.getString("button21", ""));
-        aButtons[2][2].setText(mPrefs.getString("button22", ""));
-
-        for (int j = 0; j < 3; j++) {
-            for (int i = 0; i < 3; i++) {
-                String idName = "button" + i + j;
-                if (mPrefs.getString(idName, "") == "o") {
-                    aButtons[i][j].setBackgroundResource(R.drawable.o);
-                }
-                if (mPrefs.getString(idName, "") == "x") {
-                    aButtons[i][j].setBackgroundResource(R.drawable.x);
-                }
-                aButtons[i][j].setTextScaleX(0);
-            }
-        }
-
-        oTurnTxt.setText(mPrefs.getString("oTurnTxt", ""));
-        xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
-    }
+//    @Override
+//    protected void onPause() {
+//
+//        String button00 = aButtons[0][0].getText().toString();
+//        String button01 = aButtons[0][1].getText().toString();
+//        String button02 = aButtons[0][2].getText().toString();
+//        String button10 = aButtons[1][0].getText().toString();
+//        String button11 = aButtons[1][1].getText().toString();
+//        String button12 = aButtons[1][2].getText().toString();
+//        String button20 = aButtons[2][0].getText().toString();
+//        String button21 = aButtons[2][1].getText().toString();
+//        String button22 = aButtons[2][2].getText().toString();
+//
+//        SharedPreferences.Editor ed = mPrefs.edit();
+//
+//        ed.putString("button00", button00);
+//        ed.putString("button01", button01);
+//        ed.putString("button02", button02);
+//        ed.putString("button10", button10);
+//        ed.putString("button11", button11);
+//        ed.putString("button12", button12);
+//        ed.putString("button20", button20);
+//        ed.putString("button21", button21);
+//        ed.putString("button22", button22);
+//
+//        ed.putString("oTurnTxt", oTurnTxt.getText().toString());
+//        ed.putString("xTurnTxt", xTurnTxt.getText().toString());
+//
+//        ed.commit();
+//        super.onPause();
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        aButtons[0][0].setText(mPrefs.getString("button00", ""));
+//        aButtons[0][1].setText(mPrefs.getString("button01", ""));
+//        aButtons[0][2].setText(mPrefs.getString("button02", ""));
+//        aButtons[1][0].setText(mPrefs.getString("button10", ""));
+//        aButtons[1][1].setText(mPrefs.getString("button11", ""));
+//        aButtons[1][2].setText(mPrefs.getString("button12", ""));
+//        aButtons[2][0].setText(mPrefs.getString("button20", ""));
+//        aButtons[2][1].setText(mPrefs.getString("button21", ""));
+//        aButtons[2][2].setText(mPrefs.getString("button22", ""));
+//
+//        for (int j = 0; j < 3; j++) {
+//            for (int i = 0; i < 3; i++) {
+//                String idName = "button" + i + j;
+//                if (mPrefs.getString(idName, "") == "o") {
+//                    aButtons[i][j].setBackgroundResource(R.drawable.o);
+//                }
+//                if (mPrefs.getString(idName, "") == "x") {
+//                    aButtons[i][j].setBackgroundResource(R.drawable.x);
+//                }
+//                aButtons[i][j].setTextScaleX(0);
+//            }
+//        }
+//
+//        oTurnTxt.setText(mPrefs.getString("oTurnTxt", ""));
+//        xTurnTxt.setText(mPrefs.getString("xTurnTxt", ""));
+//    }
 
     @Override
     public void onClick(View v) {
