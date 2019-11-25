@@ -11,7 +11,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PlayerTheme">
 
-    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MaterialToolbar">
+
         <!-- Go back button -->
         <Button android:id="@+id/go_back"
             style="@style/Buttons.NewGame.GoBack" />
@@ -19,7 +23,8 @@
         <!-- New game button -->
         <Button android:id="@+id/new_game"
             style="@style/Buttons.NewGame" />
-    </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <!-- OX images and turns -->
     <LinearLayout style="@style/OXContainer">

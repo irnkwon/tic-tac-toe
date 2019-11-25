@@ -12,7 +12,11 @@
     style="@style/PlayerTheme"
     android:id="@+id/playerSelectContainer">
 
-    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MaterialToolbar">
+
         <!-- Go back button -->
         <Button
             android:id="@+id/go_back"
@@ -23,7 +27,8 @@
             android:id="@+id/add_player"
             style="@style/Buttons.NewGame"
             android:text="@string/add_player" />
-    </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"

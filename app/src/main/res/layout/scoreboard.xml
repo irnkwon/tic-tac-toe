@@ -4,7 +4,7 @@
     - vertical orientation
 
     Created by Irene Kwon
-    Last Modified at Nov 23, 2019
+    Last Modified at Nov 24, 2019
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,11 +12,16 @@
     style="@style/PlayerTheme"
     android:id="@+id/playerSelectContainer">
 
-    <androidx.appcompat.widget.Toolbar style="@style/Toolbar">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MaterialToolbar">
+
         <!-- Go back button -->
         <Button android:id="@+id/go_back"
             style="@style/Buttons.NewGame.GoBack" />
-    </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"

@@ -22,6 +22,10 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="MaterialToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/lightpink</item>
+    </style>
+
     <style name="Logo">
         <item name="android:layout_width">338dp</item>
         <item name="android:layout_height">183dp</item>

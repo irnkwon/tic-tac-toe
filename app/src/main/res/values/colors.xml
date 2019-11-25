@@ -4,13 +4,14 @@
     - saves all the colors used for the app
 
     Created by Irene Kwon
-    Last Modified at Nov 23, 2019
+    Last Modified at Nov 24, 2019
 -->
 
 <resources>
 
     <color name="white">#FFFFFF</color>
     <color name="pink">#E75480</color>
+    <color name="lightpink">#E6638A</color>
     <color name="black">#000000</color>
     <drawable name="pink">#E75480</drawable>
 
